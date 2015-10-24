@@ -1,4 +1,4 @@
-# react-icheck
+# React-iCheck
 
 [![NPM version][npm-badge]][npm] [![Build Status][travis-ci-image]][travis-ci-url]
 
@@ -6,7 +6,7 @@
 [![devDependency Status][dev-deps-badge]][dev-deps]
 [![peerDependency Status][peer-deps-badge]][peer-deps]
 
-[icheck](https://github.com/fronteed/icheck) components built with [React](http://facebook.github.io/react/).
+[iCheck](https://github.com/fronteed/icheck) components built with [React](http://facebook.github.io/react/).
 
 
 [npm-badge]: http://badge.fury.io/js/react-icheck.svg

@@ -15,7 +15,7 @@ import Basic from './components/examples/Basic';
 const routes = (
   <Router history={ history }>
     <Route path="/" component={App}>
-      <IndexRoute component={Home} />
+      <IndexRoute component={Basic} />
       <Route path="getting-started" component={GettingStarted}/>
       <Route path="examples">
         <Route path="basic" component={Basic}/>

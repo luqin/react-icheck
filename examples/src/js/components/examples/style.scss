@@ -1,0 +1,105 @@
+.icheckbox_minimal, .icheckbox_minimal-red, .icheckbox_minimal-green, .icheckbox_minimal-blue, .icheckbox_minimal-aero, .icheckbox_minimal-grey, .icheckbox_minimal-orange, .icheckbox_minimal-yellow, .icheckbox_minimal-pink, .icheckbox_minimal-purple, .iradio_minimal, .iradio_minimal-red, .iradio_minimal-green, .iradio_minimal-blue, .iradio_minimal-aero, .iradio_minimal-grey, .iradio_minimal-orange, .iradio_minimal-yellow, .iradio_minimal-pink, .iradio_minimal-purple {
+  position: relative;
+
+  + span {
+    padding-left: 18px;
+  }
+}
+
+.icheckbox_square, .icheckbox_square-red, .icheckbox_square-green, .icheckbox_square-blue, .icheckbox_square-aero, .icheckbox_square-grey, .icheckbox_square-orange, .icheckbox_square-yellow, .icheckbox_square-pink, .icheckbox_square-purple, .iradio_square, .iradio_square-red, .iradio_square-green, .iradio_square-blue, .iradio_square-aero, .iradio_square-grey, .iradio_square-orange, .iradio_square-yellow, .iradio_square-pink, .iradio_square-purple {
+  position: relative;
+
+  + span {
+    padding-left: 18px;
+  }
+}
+
+.icheckbox_flat, .icheckbox_flat-red, .icheckbox_flat-green, .icheckbox_flat-blue, .icheckbox_flat-aero, .icheckbox_flat-grey, .icheckbox_flat-orange, .icheckbox_flat-yellow, .icheckbox_flat-pink, .icheckbox_flat-purple, .iradio_flat, .iradio_flat-red, .iradio_flat-green, .iradio_flat-blue, .iradio_flat-aero, .iradio_flat-grey, .iradio_flat-orange, .iradio_flat-yellow, .iradio_flat-pink, .iradio_flat-purple {
+  position: relative;
+
+  + span {
+    padding-left: 18px;
+  }
+}
+
+.colors {
+  strong {
+    float: left;
+    line-height: 20px;
+    margin-right: 20px
+  }
+
+  li {
+    list-style: none;
+  }
+}
+
+.colors {
+  clear: both;
+  padding: 24px 0 9px;
+}
+
+.colors li {
+  position: relative;
+  float: left;
+  width: 16px;
+  height: 16px;
+  margin: 2px 1px 0 0;
+  background: #000;
+  cursor: pointer;
+  filter: alpha(opacity=50);
+  opacity: .5;
+  -webkit-transition: opacity .2s;
+  -moz-transition: opacity .2s;
+  -ms-transition: opacity .2s;
+  -o-transition: opacity .2s;
+  transition: opacity .2s;
+}
+
+.colors li:hover {
+  filter: alpha(opacity=100);
+  opacity: 1
+}
+
+.colors li.active {
+  height: 20px;
+  margin-top: 0;
+  filter: alpha(opacity=75);
+  opacity: .75
+}
+
+.colors li.red {
+  background: #d54e21
+}
+
+.colors li.green {
+  background: #78a300
+}
+
+.colors li.blue {
+  background: #0e76a8
+}
+
+.colors li.aero {
+  background: #9cc2cb
+}
+
+.colors li.grey {
+  background: #73716e
+}
+
+.colors li.orange {
+  background: #f70
+}
+
+.colors li.yellow {
+  background: #fc0
+}
+
+.colors li.pink {
+  background: #ff66b5
+}
+
+.colors li.purple {
+  background: #6a5a8c
+}

@@ -1,6 +1,10 @@
-import React from 'react';
+import './style.scss';
 
-import {Checkbox} from 'react-icheck';
+import React from 'react';
+import {PageHeader} from 'react-bootstrap';
+import Demo from './Demo';
+import SkinDemo from './SkinDemo';
+import LineSkin from './LineSkin';
 
 class Basic extends React.Component {
 
@@ -18,8 +22,15 @@ class Basic extends React.Component {
 
   render() {
     return (
-      <Checkbox>
-      </Checkbox>
+      <div>
+        <PageHeader>Examples</PageHeader>
+        <Demo/>
+        <br/>
+        <SkinDemo title="Minimal skin" skin="minimal" color=""/>
+        <SkinDemo title="Square skin" skin="square" color="green"/>
+        <SkinDemo title="Flat skin" skin="flat" color="red"/>
+        <LineSkin/>
+      </div>
     );
   }
 }

@@ -27,7 +27,7 @@ class App extends React.Component {
     return (
       <div>
         <Navbar inverse toggleNavKey={0}>
-          <NavBrand><a href="#">React-DataTables</a></NavBrand>
+          <NavBrand><a href="#">React-iCheck</a></NavBrand>
           <Nav>
             <LinkContainer to="/getting-started">
               <NavItem>Getting started</NavItem>
@@ -40,7 +40,7 @@ class App extends React.Component {
             <NavItem eventKey={2} href="https://github.com/luqin/react-icheck" target="_blank">GitHub</NavItem>
           </Nav>
         </Navbar>
-        <Grid fluid>
+        <Grid>
           <Row>
             <Col md={12}>
               {this.props.children}
