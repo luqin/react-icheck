@@ -401,8 +401,12 @@ class EnhancedSwitch extends React.Component {
       </div>
     );
 
-    if (!props.label) {
+    let labelElement = props.label;
+    if (!labelElement) {
       return inputContainer;
+    }
+    if (!React.isValidElement(labelElement)) {
+      labelElement = <span dangerouslySetInnerHTML={{__html: labelElement}}></span>;
     }
 
     // Label events
@@ -446,7 +450,7 @@ class EnhancedSwitch extends React.Component {
     return (
       <label {...labelProps}>
         {inputContainer}
-        {props.label}
+        {labelElement}
       </label>
     );
   }
