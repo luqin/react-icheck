@@ -1,23 +1,15 @@
 import React from 'react';
 import {Panel, Row, Col} from 'react-bootstrap';
 import {Checkbox, Radio} from 'react-icheck';
-import ColorToolbar from './ColorToolbar';
 
-class SkinDemo extends React.Component {
+class PolarisSkin extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      skin: props.skin,
+      skin: 'polaris',
       color: props.color,
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      skin: nextProps.skin,
-      color: nextProps.color,
-    });
   }
 
   getCheckboxClass() {
@@ -36,40 +28,36 @@ class SkinDemo extends React.Component {
     return `iradio_${skin}`;
   }
 
-  handleColor(color) {
-    this.setState({color});
-  }
-
   render() {
     return (
-      <div>
-        <h3>{this.props.title}</h3>
+      <div className="skin skin-polaris">
+        <h3>Polaris skin</h3>
         <Panel>
           <Row>
             <Col md={6}>
               <Checkbox
                 checkboxClass={this.getCheckboxClass()}
-                increaseArea="20%"
+                increaseArea="-10%"
                 label="Checkbox"
               />
               <br/>
               <Checkbox
                 checkboxClass={this.getCheckboxClass()}
-                increaseArea="20%"
+                increaseArea="-10%"
                 label="Checkbox, defaultChecked"
                 defaultChecked
               />
               <br/>
               <Checkbox
                 checkboxClass={this.getCheckboxClass()}
-                increaseArea="20%"
+                increaseArea="-10%"
                 label="Checkbox, disabled"
                 disabled
               />
               <br/>
               <Checkbox
                 checkboxClass={this.getCheckboxClass()}
-                increaseArea="20%"
+                increaseArea="-10%"
                 label="Checkbox, defaultChecked disabled"
                 defaultChecked
                 disabled
@@ -78,34 +66,33 @@ class SkinDemo extends React.Component {
             <Col md={6}>
               <Radio
                 radioClass={this.getRadioClass()}
-                increaseArea="20%"
+                increaseArea="-10%"
                 label="Radio"
               />
               <br/>
               <Radio
                 radioClass={this.getRadioClass()}
-                increaseArea="20%"
+                increaseArea="-10%"
                 label="Radio, defaultChecked"
                 defaultChecked
               />
               <br/>
               <Radio
                 radioClass={this.getRadioClass()}
-                increaseArea="20%"
+                increaseArea="-10%"
                 label="Radio, disabled"
                 disabled
               />
               <br/>
               <Radio
                 radioClass={this.getRadioClass()}
-                increaseArea="20%"
+                increaseArea="-10%"
                 label="Radio, defaultChecked disabled"
                 defaultChecked
                 disabled
               />
             </Col>
           </Row>
-          <ColorToolbar color={this.state.color} onChange={this.handleColor.bind(this)}/>
         </Panel>
 
       </div>
@@ -113,4 +100,4 @@ class SkinDemo extends React.Component {
   }
 }
 
-export default SkinDemo;
+export default PolarisSkin;

@@ -5,6 +5,8 @@ import {PageHeader} from 'react-bootstrap';
 import Demo from './Demo';
 import SkinDemo from './SkinDemo';
 import LineSkin from './LineSkin';
+import PolarisSkin from './PolarisSkin';
+import FuturicoSkin from './FuturicoSkin';
 
 class Basic extends React.Component {
 
@@ -30,6 +32,9 @@ class Basic extends React.Component {
         <SkinDemo title="Square skin" skin="square" color="green"/>
         <SkinDemo title="Flat skin" skin="flat" color="red"/>
         <LineSkin/>
+        <PolarisSkin/>
+        <FuturicoSkin/>
+        <br/>
       </div>
     );
   }

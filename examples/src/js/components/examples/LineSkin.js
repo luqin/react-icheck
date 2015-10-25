@@ -1,5 +1,5 @@
 import React from 'react';
-import {Panel, Row, Col, PageHeader} from 'react-bootstrap';
+import {Panel, Row, Col} from 'react-bootstrap';
 import {Checkbox, Radio} from 'react-icheck';
 import ColorToolbar from './ColorToolbar';
 

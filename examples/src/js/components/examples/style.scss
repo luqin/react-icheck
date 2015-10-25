@@ -22,6 +22,34 @@
   }
 }
 
+.icheckbox_polaris, .iradio_polaris {
+  position: relative;
+
+  + span {
+    padding-left: 18px;
+  }
+}
+
+.icheckbox_futurico, .iradio_futurico {
+  position: relative;
+
+  + span {
+    padding-left: 18px;
+  }
+}
+
+.skin.skin-polaris {
+  .panel {
+    color: #7a828b;
+    background: #2c323c;
+  }
+}
+
+.skin.skin-futurico panel {
+  color: #888;
+  background: #2e3035;
+}
+
 .colors {
   strong {
     float: left;
