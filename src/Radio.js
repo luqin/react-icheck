@@ -2,7 +2,7 @@ import React from 'react';
 
 import EnhancedSwitch from './EnhancedSwitch';
 
-class Checkbox extends React.Component {
+class Radio extends React.Component {
 
   constructor(props) {
     super(props);
@@ -23,4 +23,4 @@ class Checkbox extends React.Component {
   }
 }
 
-export default Checkbox;
+export default Radio;
