@@ -223,8 +223,18 @@ class EnhancedSwitch extends React.Component {
   componentWillUnmount() {
   }
 
-  setChecked(newCheckedValue) {
+  getValue() {
+    return this.refs.checkbox.value;
+  }
 
+  setChecked(newCheckedValue) {
+    if (!this.props.hasOwnProperty('checked') || this.props.checked === false) {
+      // TODO: this.props.onParentShouldUpdate(newSwitchedValue);
+      this.refs.checkbox.checked = newCheckedValue;
+    } else if (process.env.NODE_ENV !== 'production') {
+      let message = 'Cannot call set method while checked is defined as a property.';
+      console.error(message);
+    }
   }
 
   isChecked() {

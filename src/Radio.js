@@ -15,10 +15,27 @@ class Radio extends React.Component {
   componentWillUnmount() {
   }
 
+  getValue() {
+    return this.refs.enhancedSwitch.getValue();
+  }
+
+  setChecked(newCheckedValue) {
+    this.refs.enhancedSwitch.setSwitched(newCheckedValue);
+  }
+
+  isChecked() {
+    return this.refs.enhancedSwitch.isSwitched();
+  }
+
   render() {
+    let enhancedSwitchProps = {
+      ref: 'enhancedSwitch',
+      inputType: 'radio',
+      // labelClassName
+    };
 
     return (
-      <EnhancedSwitch {...this.props} inputType="radio"/>
+      <EnhancedSwitch {...this.props} {...enhancedSwitchProps}/>
     );
   }
 }

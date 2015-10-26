@@ -1,6 +1,6 @@
 import React from 'react';
-import {Panel, Row, Col, Button, ButtonGroup} from 'react-bootstrap';
-import {Checkbox, Radio} from 'react-icheck';
+import {Panel, Row, Col} from 'react-bootstrap';
+import {Checkbox, Radio, RadioGroup} from 'react-icheck';
 
 class Demo extends React.Component {
 
@@ -83,25 +83,36 @@ class Demo extends React.Component {
                 defaultChecked
                 disabled={this.state.i2disabled}
               />
-            </Col>
-            <Col md={6}>
-              <Radio
-                name="aa"
-                radioClass="iradio_square-blue"
-                increaseArea="20%"
-                label="Radio, <span class='label1'>#input-3</span>"
-                checked={this.state.i3checked}
-                onChange={this.handle3Change.bind(this)}
-              />
               <br/>
-              <Radio
-                name="aa"
-                radioClass="iradio_square-blue"
+              <Checkbox
+                checkboxClass="icheckbox_square-blue"
                 increaseArea="20%"
-                label="Radio, <span class='label1'>#input-4</span>"
-                defaultChecked
-                disabled={this.state.i4disabled}
+                label="Checkbox, <span class='label1'>#disabled</span>"
+                disabled
               />
+            </Col>
+            <Col md={3}>
+              <RadioGroup name="radio" value="3">
+                <Radio
+                  value="3"
+                  radioClass="iradio_square-blue"
+                  increaseArea="20%"
+                  label="Radio, <span class='label1'>#input-3</span>"
+                />
+                <Radio
+                  value="4"
+                  radioClass="iradio_square-blue"
+                  increaseArea="20%"
+                  label="Radio, <span class='label1'>#input-4</span>"
+                />
+                <Radio
+                  value="5"
+                  radioClass="iradio_square-blue"
+                  increaseArea="20%"
+                  label="Radio, <span class='label1'>#disabled</span>"
+                  disabled
+                />
+              </RadioGroup>
             </Col>
           </Row>
 

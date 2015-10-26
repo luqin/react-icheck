@@ -15,10 +15,21 @@ class Checkbox extends React.Component {
   componentWillUnmount() {
   }
 
-  render() {
+  getValue() {
+    return this.refs.enhancedSwitch.getValue();
+  }
 
+  setChecked(newCheckedValue) {
+    this.refs.enhancedSwitch.setSwitched(newCheckedValue);
+  }
+
+  isChecked() {
+    return this.refs.enhancedSwitch.isSwitched();
+  }
+
+  render() {
     return (
-      <EnhancedSwitch {...this.props} inputType="checkbox"/>
+      <EnhancedSwitch ref="enhancedSwitch" {...this.props} inputType="checkbox"/>
     );
   }
 }

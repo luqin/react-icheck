@@ -4,6 +4,7 @@ var taskConfig = {
 
   component: {
     name: 'react-icheck',
+    lib: './lib',
     scripts: {
       entry: './src/index.js',
       output: {
