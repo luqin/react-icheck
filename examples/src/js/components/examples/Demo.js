@@ -49,6 +49,18 @@ class Demo extends React.Component {
     });
   }
 
+  handle1Change(e, checked) {
+    this.setState({
+      i1checked: checked,
+    });
+  }
+
+  handle3Change(e, checked) {
+    this.setState({
+      i3checked: checked,
+    });
+  }
+
   render() {
     return (
       <div className="demo">
@@ -61,7 +73,7 @@ class Demo extends React.Component {
                 increaseArea="20%"
                 label="Checkbox, <span class='label1'>#input-1</span>"
                 checked={this.state.i1checked}
-                cursor
+                onChange={this.handle1Change.bind(this)}
               />
               <br/>
               <Checkbox
@@ -79,6 +91,7 @@ class Demo extends React.Component {
                 increaseArea="20%"
                 label="Radio, <span class='label1'>#input-3</span>"
                 checked={this.state.i3checked}
+                onChange={this.handle3Change.bind(this)}
               />
               <br/>
               <Radio

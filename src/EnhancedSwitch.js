@@ -16,6 +16,8 @@ class EnhancedSwitch extends React.Component {
 
     label: React.PropTypes.node,
 
+    disabled: React.PropTypes.bool,
+
     onChange: React.PropTypes.func,
 
     // base class added to customized checkboxes
@@ -226,7 +228,7 @@ class EnhancedSwitch extends React.Component {
   }
 
   isChecked() {
-    return this.state.checked;
+    return this.refs.checkbox.checked;
   }
 
   adjustStyle() {
@@ -236,15 +238,15 @@ class EnhancedSwitch extends React.Component {
     }
   }
 
-  handleChange(event) {
-    const checked = event.target.checked;
+  handleChange(e) {
+    const checked = e.target.checked;
     if (!('checked' in this.props)) {
       this.setState({
         checked: checked,
       });
     }
     if (this.props.onChange) {
-      this.props.onChange(event, this.state.checked);
+      this.props.onChange(e, checked);
     }
   }
 
@@ -273,18 +275,40 @@ class EnhancedSwitch extends React.Component {
       return;
     }
 
-    let type = event.type;
+    // let type = event.type;
 
-    let checked = !this.state.checked;
+    let checked = !this.refs.checkbox.checked;
 
-    this.setState({
-      checked,
-    })
+    if (!('checked' in this.props)) {
+      this.setState({
+        checked: checked,
+      });
+    }
+
+    if (this.props.onChange && !this.props.label) {
+      // this.props.onChange(event, checked);
+    }
   }
 
   render() {
     let props = this.props;
     let {disabled} = props;
+    let {
+      type,
+      name,
+      value,
+      label,
+      onBlur,
+      onFocus,
+      onMouseUp,
+      onMouseDown,
+      onMouseLeave,
+      onTouchStart,
+      onTouchEnd,
+      className,
+      ...other,
+      } = props;
+
     let {checked} = this.state;
 
     // Setup clickable area
@@ -295,45 +319,42 @@ class EnhancedSwitch extends React.Component {
       area = -50;
     }
 
-    let id = props.id,
+    let id = props.id;
 
     // Layer styles
-      offset = -area + '%',
-      size = 100 + (area * 2) + '%',
-      layer = {
-        position: 'absolute',
-        top: offset,
-        left: offset,
-        display: 'block',
-        width: size,
-        height: size,
-        margin: 0,
-        padding: 0,
-        background: '#fff',
-        border: 0,
-        opacity: 0,
-        cursor: disabled ? 'default' : 'pointer'
-      },
+    let offset = -area + '%';
+    let size = 100 + (area * 2) + '%';
+    let layer = {
+      position: 'absolute',
+      top: offset,
+      left: offset,
+      display: 'block',
+      width: size,
+      height: size,
+      margin: 0,
+      padding: 0,
+      background: '#fff',
+      border: 0,
+      opacity: 0,
+      cursor: disabled ? 'default' : 'pointer',
+    };
 
     // Choose how to hide input
-      hide = _mobile ? {
-        position: 'absolute',
-        visibility: 'hidden',
-      } : area ? layer : {
-        position: 'absolute',
-        opacity: 0,
-      },
-
-    // Find assigned labels
-      label,
+    let hide = _mobile ? {
+      position: 'absolute',
+      visibility: 'hidden',
+    } : area ? layer : {
+      position: 'absolute',
+      opacity: 0,
+    };
 
     // Check ARIA option
-      aria = !!props.aria,
+    let aria = !!props.aria;
 
     // Set ARIA placeholder
-      ariaID = _iCheck + '-' + Math.random().toString(36).substr(2, 6),
+    let ariaID = _iCheck + '-' + Math.random().toString(36).substr(2, 6);
 
-      helper;
+    let helper;
 
     const wrapProps = {
       className: classnames({
@@ -361,7 +382,7 @@ class EnhancedSwitch extends React.Component {
       wrapProps.id = _iCheck + '-' + id;
     }
 
-    let helperProps = {
+    const helperProps = {
       className: _iCheckHelper,
       style: layer,
       onClick: this.handleHelperClick.bind(this),
@@ -370,12 +391,14 @@ class EnhancedSwitch extends React.Component {
     // Layer addition
     helper = <ins {...helperProps}/>;
 
-    let inputProps = {
+    const inputProps = {
+      ref: 'checkbox',
       type: props.inputType,
       style: hide,
+      name: name,
+      value: value,
       defaultChecked: props.defaultChecked,
       // checked: !!checked,
-      disabled: disabled,
       onChange: this.handleChange.bind(this),
       onBlur: this.handleBlur.bind(this),
       onFocus: this.handleFocus.bind(this),
@@ -383,7 +406,7 @@ class EnhancedSwitch extends React.Component {
 
     const inputElement = (
       <input
-        {...this.props}
+        {...other}
         {...inputProps}
       />
     );
@@ -416,10 +439,10 @@ class EnhancedSwitch extends React.Component {
         return;
       }
 
-      const type = event.type;
+      const etype = event.type;
 
       // Click
-      if (type === 'click') {
+      if (etype === 'click') {
         // FIXME
         // if ($(event.target).is('a')) {
         //  return;
@@ -428,19 +451,18 @@ class EnhancedSwitch extends React.Component {
       } else if (props.labelHover) {
         // mouseout|touchend false
         this.setState({
-          hovered: !/ut|nd/.test(type),
+          hovered: !/ut|nd/.test(etype),
         });
       }
 
       if (_mobile) {
         event.stopPropagation();
-      } else {
-        return false;
       }
+      // return false;
     }
 
-    let labelProps = {
-      onClick: handleLabelEvent.bind(this),
+    const labelProps = {
+      // onClick: handleLabelEvent.bind(this),
       onMouseOver: handleLabelEvent.bind(this),
       onMouseOut: handleLabelEvent.bind(this),
       onTouchStart: handleLabelEvent.bind(this),
