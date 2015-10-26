@@ -15,8 +15,7 @@ Online demo: http://luqin.github.io/react-icheck
 ![Skins](http://fronteed.com/iCheck/examples.png)
 
 
-Features
---------
+## Features
 
 * **Identical inputs across different browsers and devices** — both [desktop and mobile](#browser-support)
 * **Touch devices support** — iOS, Android, BlackBerry, Windows Phone, Amazon Kindle
@@ -37,7 +36,7 @@ npm install react-icheck icheck --save
 ```
 
 ```
-import 'icheck/skins/all.css';
+import 'icheck/skins/all.css'; # or single skin css
 import {Checkbox, Radio} from 'react-icheck';
 
 <Checkbox
@@ -56,14 +55,20 @@ import {Checkbox, Radio} from 'react-icheck';
 
 More examples: [Online demo](http://luqin.github.io/react-icheck), [Source](https://github.com/luqin/react-icheck/tree/master/examples)
 
-Browser support
----------------
+## Browser support
 
 iCheck is verified to work in Internet Explorer 6+, Firefox 2+, Opera 9+, Google Chrome and Safari browsers. Should also work in many others.
 
 Mobile browsers (like Opera mini, Chrome mobile, Safari mobile, Android browser, Silk and others) are also supported. Tested on iOS (iPad, iPhone, iPod), Android, BlackBerry and Windows Phone devices.
 
+## Local Setup
 
+* Install the dependencies with `npm install`
+* Run the docs site in development mode with `npm start`. This will watch for file changes as you work. And auto refresh the page to see the updates.
+
+## TODO List
+
+* Testing
 
 [npm-badge]: http://badge.fury.io/js/react-icheck.svg
 [npm]: http://badge.fury.io/js/react-icheck
