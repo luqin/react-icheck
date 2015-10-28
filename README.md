@@ -53,6 +53,30 @@ import {Checkbox, Radio} from 'react-icheck';
 />
 ```
 
+```
+<RadioGroup name="radio" value="3">
+    <Radio
+      value="3"
+      radioClass="iradio_square-blue"
+      increaseArea="20%"
+      label="Radio, <span class='label1'>#input-3</span>"
+    />
+    <Radio
+      value="4"
+      radioClass="iradio_square-blue"
+      increaseArea="20%"
+      label="Radio, <span class='label1'>#input-4</span>"
+    />
+    <Radio
+      value="5"
+      radioClass="iradio_square-blue"
+      increaseArea="20%"
+      label="Radio, <span class='label1'>#disabled</span>"
+      disabled
+    />
+</RadioGroup>
+```
+
 More examples: [Online demo](http://luqin.github.io/react-icheck), [Source](https://github.com/luqin/react-icheck/tree/master/examples)
 
 ## Browser support
