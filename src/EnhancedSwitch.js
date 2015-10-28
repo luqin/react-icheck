@@ -281,22 +281,27 @@ class EnhancedSwitch extends React.Component {
   }
 
   handleHelperClick(event) {
+    if (this.props.label) {
+      return;
+    }
+
     if (this.props.disabled) {
       return;
     }
 
     // let type = event.type;
 
-    let checked = !this.refs.checkbox.checked;
+    let newChecked = !this.refs.checkbox.checked;
 
     if (!('checked' in this.props)) {
+      this.refs.checkbox.checked = newChecked;
       this.setState({
-        checked: checked,
+        checked: newChecked,
       });
     }
 
     if (this.props.onChange && !this.props.label) {
-      // this.props.onChange(event, checked);
+      this.props.onChange(event, newChecked);
     }
   }
 
