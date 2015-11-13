@@ -36,7 +36,7 @@ npm install react-icheck icheck --save
 ```
 
 ```js
-import 'icheck/skins/all.css'; # or single skin css
+import 'icheck/skins/all.css'; // or single skin css
 import {Checkbox, Radio} from 'react-icheck';
 
 <Checkbox
