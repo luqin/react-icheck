@@ -19,6 +19,8 @@ class EnhancedSwitch extends React.Component {
     disabled: React.PropTypes.bool,
 
     onChange: React.PropTypes.func,
+    onBlur: React.PropTypes.func,
+    onFocus: React.PropTypes.func,
 
     // base class added to customized checkboxes
     checkboxClass: React.PropTypes.string,
@@ -362,6 +364,11 @@ class EnhancedSwitch extends React.Component {
       position: 'absolute',
       opacity: 0,
     };
+    if (_mobile) {
+
+    } else {
+
+    }
 
     // Check ARIA option
     let aria = !!props.aria;
@@ -444,7 +451,7 @@ class EnhancedSwitch extends React.Component {
       return inputContainer;
     }
     if (!React.isValidElement(labelElement)) {
-      labelElement = <span dangerouslySetInnerHTML={{__html: labelElement}}></span>;
+      labelElement = <span dangerouslySetInnerHTML={{__html: labelElement}}/>;
     }
 
     // Label events
