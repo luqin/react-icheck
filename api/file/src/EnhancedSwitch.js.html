@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/EnhancedSwitch.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="git+https://github.com/luqin/react-icheck.git">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Checkbox.js~Checkbox.html">Checkbox</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/EnhancedSwitch.js~EnhancedSwitch.html">EnhancedSwitch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Radio.js~Radio.html">Radio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/RadioGroup.js~RadioGroup.html">RadioGroup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-checkbox">checkbox</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-enhancedSwitch">enhancedSwitch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-radio">radio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-radioGroup">radioGroup</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/EnhancedSwitch.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
+import classnames from &apos;classnames&apos;;
+import warning from &apos;warning&apos;;
+
+const _iCheck = &apos;iCheck&apos;;
+const _iCheckHelper = _iCheck + &apos;-helper&apos;;
+const _mobile = /ipad|iphone|ipod|android|blackberry|windows phone|opera mini|silk/i.test(navigator.userAgent);
+
+class EnhancedSwitch extends React.Component {
+
+  static propTypes = {
+    inputType: React.PropTypes.string.isRequired,
+
+    checked: React.PropTypes.bool,
+    defaultChecked: React.PropTypes.bool,
+
+    label: React.PropTypes.node,
+
+    disabled: React.PropTypes.bool,
+
+    onChange: React.PropTypes.func,
+    onBlur: React.PropTypes.func,
+    onFocus: React.PropTypes.func,
+
+    /**
+     * base class added to customized checkboxes
+     */
+    checkboxClass: React.PropTypes.string,
+
+    // base class added to customized radio buttons
+    radioClass: React.PropTypes.string,
+
+    // class added on checked state (input.checked = true)
+    checkedClass: React.PropTypes.string,
+
+    // if not empty, used instead of &apos;checkedClass&apos; option (input type specific)
+    checkedCheckboxClass: React.PropTypes.string,
+    checkedRadioClass: React.PropTypes.string,
+
+    // if not empty, added as class name on unchecked state (input.checked = false)
+    uncheckedClass: React.PropTypes.string,
+
+    // if not empty, used instead of &apos;uncheckedClass&apos; option (input type specific)
+    uncheckedCheckboxClass: React.PropTypes.string,
+    uncheckedRadioClass: React.PropTypes.string,
+
+    // class added on disabled state (input.disabled = true)
+    disabledClass: React.PropTypes.string,
+
+    // if not empty, used instead of &apos;disabledClass&apos; option (input type specific)
+    disabledCheckboxClass: React.PropTypes.string,
+    disabledRadioClass: React.PropTypes.string,
+
+    // if not empty, added as class name on enabled state (input.disabled = false)
+    enabledClass: React.PropTypes.string,
+
+    // if not empty, used instead of &apos;enabledClass&apos; option (input type specific)
+    enabledCheckboxClass: React.PropTypes.string,
+    enabledRadioClass: React.PropTypes.string,
+
+    // class added on indeterminate state (input.indeterminate = true)
+    indeterminateClass: React.PropTypes.string,
+
+    // if not empty, used instead of &apos;indeterminateClass&apos; option (input type specific)
+    indeterminateCheckboxClass: React.PropTypes.string,
+    indeterminateRadioClass: React.PropTypes.string,
+
+    // if not empty, added as class name on determinate state (input.indeterminate = false)
+    determinateClass: React.PropTypes.string,
+
+    // if not empty, used instead of &apos;determinateClass&apos; option (input type specific)
+    determinateCheckboxClass: React.PropTypes.string,
+    determinateRadioClass: React.PropTypes.string,
+
+    // class added on hover state (pointer is moved onto input)
+    hoverClass: React.PropTypes.string,
+
+    // class added on focus state (input has gained focus)
+    focusClass: React.PropTypes.string,
+
+    // class added on active state (mouse button is pressed on input)
+    activeClass: React.PropTypes.string,
+
+    // adds hoverClass to customized input on label hover and labelHoverClass to label on input hover
+    labelHover: React.PropTypes.bool,
+
+    // class added to label if labelHover set to true
+    labelHoverClass: React.PropTypes.string,
+
+    // increase clickable area by given % (negative number to decrease)
+    increaseArea: React.PropTypes.string,
+
+    // true to set &apos;pointer&apos; CSS cursor over enabled inputs and &apos;default&apos; over disabled
+    cursor: React.PropTypes.bool,
+
+    // set true to inherit original input&apos;s class name
+    inheritClass: React.PropTypes.bool,
+
+    // if set to true, input&apos;s id is prefixed with &apos;iCheck-&apos; and attached
+    inheritID: React.PropTypes.bool,
+
+    // set true to activate ARIA support
+    aria: React.PropTypes.bool,
+
+    // add HTML code or text inside customized input
+    insert: React.PropTypes.node,
+
+    children: React.PropTypes.node,
+  };
+
+  static defaultProps = {
+    defaultChecked: false,
+
+    checkboxClass: &apos;icheckbox&apos;,
+
+    // base class added to customized radio buttons
+    radioClass: &apos;iradio&apos;,
+
+    // class added on checked state (input.checked = true)
+    checkedClass: &apos;checked&apos;,
+
+    // if not empty, used instead of &apos;checkedClass&apos; option (input type specific)
+    checkedCheckboxClass: &apos;&apos;,
+    checkedRadioClass: &apos;&apos;,
+
+    // if not empty, added as class name on unchecked state (input.checked = false)
+    uncheckedClass: &apos;&apos;,
+
+    // if not empty, used instead of &apos;uncheckedClass&apos; option (input type specific)
+    uncheckedCheckboxClass: &apos;&apos;,
+    uncheckedRadioClass: &apos;&apos;,
+
+    // class added on disabled state (input.disabled = true)
+    disabledClass: &apos;disabled&apos;,
+
+    // if not empty, used instead of &apos;disabledClass&apos; option (input type specific)
+    disabledCheckboxClass: &apos;&apos;,
+    disabledRadioClass: &apos;&apos;,
+
+    // if not empty, added as class name on enabled state (input.disabled = false)
+    enabledClass: &apos;&apos;,
+
+    // if not empty, used instead of &apos;enabledClass&apos; option (input type specific)
+    enabledCheckboxClass: &apos;&apos;,
+    enabledRadioClass: &apos;&apos;,
+
+    // class added on indeterminate state (input.indeterminate = true)
+    indeterminateClass: &apos;indeterminate&apos;,
+
+    // if not empty, used instead of &apos;indeterminateClass&apos; option (input type specific)
+    indeterminateCheckboxClass: &apos;&apos;,
+    indeterminateRadioClass: &apos;&apos;,
+
+    // if not empty, added as class name on determinate state (input.indeterminate = false)
+    determinateClass: &apos;&apos;,
+
+    // if not empty, used instead of &apos;determinateClass&apos; option (input type specific)
+    determinateCheckboxClass: &apos;&apos;,
+    determinateRadioClass: &apos;&apos;,
+
+    // class added on hover state (pointer is moved onto input)
+    hoverClass: &apos;hover&apos;,
+
+    // class added on focus state (input has gained focus)
+    focusClass: &apos;focus&apos;,
+
+    // class added on active state (mouse button is pressed on input)
+    activeClass: &apos;active&apos;,
+
+    // adds hoverClass to customized input on label hover and labelHoverClass to label on input hover
+    labelHover: true,
+
+    // class added to label if labelHover set to true
+    labelHoverClass: &apos;hover&apos;,
+
+    // increase clickable area by given % (negative number to decrease)
+    increaseArea: &apos;&apos;,
+
+    // true to set &apos;pointer&apos; CSS cursor over enabled inputs and &apos;default&apos; over disabled
+    cursor: false,
+
+    // set true to inherit original input&apos;s class name
+    inheritClass: false,
+
+    // if set to true, input&apos;s id is prefixed with &apos;iCheck-&apos; and attached
+    inheritID: false,
+
+    // set true to activate ARIA support
+    aria: false,
+
+    // add HTML code or text inside customized input
+    insert: &apos;&apos;,
+  };
+
+  constructor(props) {
+    super(props);
+    let checked = false;
+    if (&apos;checked&apos; in props) {
+      checked = props.checked;
+    } else {
+      checked = props.defaultChecked;
+    }
+    this.state = {
+      checked,
+      focused: false,
+      hovered: false,
+      active: false,
+    };
+  }
+
+  componentDidMount() {
+    this.adjustStyle();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (&apos;checked&apos; in nextProps) {
+      this.setState({
+        checked: nextProps.checked,
+      });
+    }
+  }
+
+  componentDidUpdate() {
+    this.adjustStyle();
+  }
+
+  componentWillUnmount() {
+  }
+
+  getValue() {
+    return this.refs.checkbox.value;
+  }
+
+  setChecked(newCheckedValue) {
+    if (!this.props.hasOwnProperty(&apos;checked&apos;) || this.props.checked === false) {
+      // TODO: this.props.onParentShouldUpdate(newSwitchedValue);
+      this.refs.checkbox.checked = newCheckedValue;
+    } else {
+      let message = &apos;Cannot call set method while checked is defined as a property.&apos;;
+      warning(false, message);
+    }
+  }
+
+  isChecked() {
+    return this.refs.checkbox.checked;
+  }
+
+  adjustStyle() {
+    const {inputContainer} = this.refs;
+    if (inputContainer.style.position === &apos;static&apos;) {
+      inputContainer.style.position = &apos;relative&apos;;
+    }
+  }
+
+  handleChange(e) {
+    const checked = e.target.checked;
+    if (!(&apos;checked&apos; in this.props)) {
+      this.setState({
+        checked: checked,
+      });
+    }
+    if (this.props.onChange) {
+      this.props.onChange(e, checked);
+    }
+  }
+
+  handleBlur(e) {
+    this.setState({
+      focused: false,
+    });
+
+    if (this.props.onBlur) {
+      this.props.onBlur(e);
+    }
+  }
+
+  handleFocus(e) {
+    this.setState({
+      focused: true,
+    });
+
+    if (this.props.onFocus) {
+      this.props.onFocus(e);
+    }
+  }
+
+  handleHelperClick(event) {
+    if (this.props.label) {
+      return;
+    }
+
+    if (this.props.disabled) {
+      return;
+    }
+
+    // let type = event.type;
+
+    let newChecked = !this.refs.checkbox.checked;
+
+    if (!(&apos;checked&apos; in this.props)) {
+      this.refs.checkbox.checked = newChecked;
+      this.setState({
+        checked: newChecked,
+      });
+    }
+
+    if (this.props.onChange &amp;&amp; !this.props.label) {
+      this.props.onChange(event, newChecked);
+    }
+  }
+
+  render() {
+    let props = this.props;
+    let {disabled} = props;
+    let {
+      type,
+      name,
+      value,
+      label,
+      onBlur,
+      onFocus,
+      onMouseUp,
+      onMouseDown,
+      onMouseLeave,
+      onTouchStart,
+      onTouchEnd,
+      className,
+      ...other,
+      } = props;
+
+    let {checked} = this.state;
+
+    // Setup clickable area
+    let area = (&apos;&apos; + props.increaseArea).replace(&apos;%&apos;, &apos;&apos;) | 0;
+
+    // Clickable area limit
+    if (area &lt; -50) {
+      area = -50;
+    }
+
+    let id = props.id;
+
+    // Layer styles
+    let offset = -area + &apos;%&apos;;
+    let size = 100 + (area * 2) + &apos;%&apos;;
+    let layer = {
+      position: &apos;absolute&apos;,
+      top: offset,
+      left: offset,
+      display: &apos;block&apos;,
+      width: size,
+      height: size,
+      margin: 0,
+      padding: 0,
+      background: &apos;#fff&apos;,
+      border: 0,
+      opacity: 0,
+      cursor: disabled ? &apos;default&apos; : &apos;pointer&apos;,
+    };
+
+    // Choose how to hide input
+    let hide;
+    if (_mobile) {
+      hide = {
+        position: &apos;absolute&apos;,
+        visibility: &apos;hidden&apos;,
+      };
+    } else if (area) {
+      hide = layer;
+    } else {
+      hide = {
+        position: &apos;absolute&apos;,
+        opacity: 0,
+      };
+    }
+
+    // Check ARIA option
+    let aria = !!props.aria;
+
+    // TODO: Set ARIA placeholder
+    // let ariaID = _iCheck + &apos;-&apos; + Math.random().toString(36).substr(2, 6);
+
+    let helper;
+
+    const wrapProps = {
+      className: classnames({
+        [props.checkboxClass]: props.inputType === &apos;checkbox&apos;,
+        [props.radioClass]: props.inputType === &apos;radio&apos;,
+        [props.checkedClass]: checked,
+        [props.disabledClass]: disabled,
+        [props.hoverClass]: this.state.hovered,
+        [props.focusClass]: this.state.focused,
+        [props.activeClass]: this.state.active,
+      }),
+    };
+
+    if (aria) {
+      wrapProps.role = props.inputType;
+      // Set ARIA &quot;labelledby&quot;
+      wrapProps[&apos;aria-labelledby&apos;] = &apos;&apos;;
+    }
+
+    if (props.inheritClass) {
+      wrapProps.className = classnames(wrapProps.className, props.className);
+    }
+
+    if (props.inheritID &amp;&amp; id) {
+      wrapProps.id = _iCheck + &apos;-&apos; + id;
+    }
+
+    const helperProps = {
+      className: _iCheckHelper,
+      style: layer,
+      onClick: this.handleHelperClick.bind(this),
+    };
+
+    // Layer addition
+    helper = &lt;ins {...helperProps}/&gt;;
+
+    const inputProps = {
+      ref: &apos;checkbox&apos;,
+      type: props.inputType,
+      style: hide,
+      name: name,
+      value: value,
+      defaultChecked: props.defaultChecked,
+      // checked: !!checked,
+      onChange: this.handleChange.bind(this),
+      onBlur: this.handleBlur.bind(this),
+      onFocus: this.handleFocus.bind(this),
+    };
+
+    const inputElement = (
+      &lt;input
+        {...other}
+        {...inputProps}
+      /&gt;
+    );
+
+    let insertElement = props.insert;
+    if (!React.isValidElement(insertElement)) {
+      insertElement = &lt;div dangerouslySetInnerHTML={{__html: insertElement}}&gt;&lt;/div&gt;;
+    }
+
+    const inputContainer = (
+      &lt;div ref=&quot;inputContainer&quot; {...wrapProps}&gt;
+        {inputElement}
+        {insertElement}
+        {helper}
+      &lt;/div&gt;
+    );
+
+    let labelElement = props.label;
+    if (!labelElement) {
+      return inputContainer;
+    }
+    if (!React.isValidElement(labelElement)) {
+      labelElement = &lt;span dangerouslySetInnerHTML={{__html: labelElement}}/&gt;;
+    }
+
+    // Label events
+    function handleLabelEvent(event) {
+      // Do nothing if input is disabled
+      if (disabled) {
+        return;
+      }
+
+      const etype = event.type;
+
+      // Click
+      if (etype === &apos;click&apos;) {
+        // FIXME
+        // if ($(event.target).is(&apos;a&apos;)) {
+        //  return;
+        // }
+        // Hover state
+      } else if (props.labelHover) {
+        // mouseout|touchend false
+        this.setState({
+          hovered: !/ut|nd/.test(etype),
+        });
+      }
+
+      if (_mobile) {
+        event.stopPropagation();
+      }
+      // return false;
+    }
+
+    const labelProps = {
+      // onClick: handleLabelEvent.bind(this),
+      onMouseOver: handleLabelEvent.bind(this),
+      onMouseOut: handleLabelEvent.bind(this),
+      onTouchStart: handleLabelEvent.bind(this),
+      onTouchEnd: handleLabelEvent.bind(this),
+    };
+
+    return (
+      &lt;label {...labelProps}&gt;
+        {inputContainer}
+        {labelElement}
+      &lt;/label&gt;
+    );
+  }
+}
+
+export default EnhancedSwitch;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.3)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
