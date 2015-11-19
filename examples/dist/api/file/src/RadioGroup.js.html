@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/RadioGroup.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="git+https://github.com/luqin/react-icheck.git">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Checkbox.js~Checkbox.html">Checkbox</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/EnhancedSwitch.js~EnhancedSwitch.html">EnhancedSwitch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Radio.js~Radio.html">Radio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/RadioGroup.js~RadioGroup.html">RadioGroup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-checkbox">checkbox</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-enhancedSwitch">enhancedSwitch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-radio">radio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-radioGroup">radioGroup</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/RadioGroup.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
+import RadioButton from &apos;./Radio&apos;;
+import warning from &apos;warning&apos;;
+
+class RadioGroup extends React.Component {
+
+  static propTypes = {
+    name: React.PropTypes.string.isRequired,
+    value: React.PropTypes.string,
+    defaultValue: React.PropTypes.string,
+    onChange: React.PropTypes.func,
+    children: React.PropTypes.node,
+    className: React.PropTypes.string,
+  };
+
+  static defaultProps = {};
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      numberCheckedRadioButtons: 0,
+      value: this.props.value || this.props.defaultValue || &apos;&apos;,
+    };
+  }
+
+  componentWillMount() {
+    let cnt = 0;
+
+    React.Children.forEach(this.props.children, (option) =&gt; {
+      if (this.hasCheckAttribute(option)) cnt++;
+    }, this);
+
+    this.setState({numberCheckedRadioButtons: cnt});
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.hasOwnProperty(&apos;value&apos;)) {
+      this.setState({
+        value: nextProps.value,
+      });
+    }
+  }
+
+  componentWillUnmount() {
+  }
+
+  getValue() {
+    return this.state.value;
+  }
+
+  setValue(newValue) {
+    this.updateRadioButtons(newValue);
+  }
+
+  clearValue() {
+    this.setValue(&apos;&apos;);
+  }
+
+  hasCheckAttribute(radioButton) {
+    return radioButton.props.hasOwnProperty(&apos;checked&apos;) &amp;&amp; radioButton.props.checked;
+  }
+
+  updateRadioButtons(newValue) {
+    if (this.state.numberCheckedRadioButtons === 0) {
+      this.setState({value: newValue});
+    } else {
+      let message = &apos;Cannot select a different radio button while another radio button &apos; +
+        &apos;has the \&apos;checked\&apos; property set to true.&apos;;
+      warning(false, message);
+    }
+  }
+
+  handleRadioChange(e /* TODO , newValue */) {
+    let newValue = e.target.value;
+
+    this.updateRadioButtons(newValue);
+
+    // Successful update
+    if (this.state.numberCheckedRadioButtons === 0) {
+      if (this.props.onChange) {
+        this.props.onChange(e, newValue);
+      }
+    }
+  }
+
+  render() {
+    let children = React.Children.map(this.props.children, (radio) =&gt; {
+      let {
+        name,
+        value,
+        label,
+        onChange,
+        ...other,
+        } = radio.props;
+
+      return (
+        &lt;RadioButton
+          {...other}
+          ref={radio.props.value}
+          name={this.props.name}
+          key={radio.props.value}
+          value={radio.props.value}
+          label={radio.props.label}
+          onChange={this.handleRadioChange.bind(this)}
+          checked={radio.props.value === this.state.value}
+        /&gt;
+      );
+    }, this);
+
+    return (
+      &lt;div className={this.props.className || &apos;&apos;}&gt;
+        {children}
+      &lt;/div&gt;
+    );
+  }
+}
+
+export default RadioGroup;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.3)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
