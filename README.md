@@ -95,7 +95,7 @@ Mobile browsers (like Opera mini, Chrome mobile, Safari mobile, Android browser,
 * Testing
 
 [npm-badge]: http://badge.fury.io/js/react-icheck.svg
-[npm]: http://badge.fury.io/js/react-icheck
+[npm]: https://www.npmjs.com/package/react-icheck
 
 [deps-badge]: https://david-dm.org/luqin/react-icheck.svg
 [deps]: https://david-dm.org/luqin/react-icheck
