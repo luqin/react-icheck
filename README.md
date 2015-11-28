@@ -31,12 +31,12 @@ Online demo: http://luqin.github.io/react-icheck
 
 ## Usage
 
-```
+```sh
 npm install react-icheck icheck --save
 ```
 
-```
-import 'icheck/skins/all.css'; # or single skin css
+```js
+import 'icheck/skins/all.css'; // or single skin css
 import {Checkbox, Radio} from 'react-icheck';
 
 <Checkbox
@@ -53,7 +53,7 @@ import {Checkbox, Radio} from 'react-icheck';
 />
 ```
 
-```
+```js
 <RadioGroup name="radio" value="3">
     <Radio
       value="3"

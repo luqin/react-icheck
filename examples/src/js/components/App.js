@@ -10,11 +10,9 @@ import {
   NavBrand,
   Nav,
   NavItem,
-  NavDropdown,
-  MenuItem,
   Grid,
   Row,
-  Col
+  Col,
 } from 'react-bootstrap';
 
 class App extends React.Component {
@@ -26,18 +24,14 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Navbar inverse toggleNavKey={0}>
+        <Navbar inverse staticTop toggleNavKey={0}>
           <NavBrand><a href="#">React-iCheck</a></NavBrand>
           <Nav>
-            <LinkContainer to="/getting-started">
-              <NavItem>Getting started</NavItem>
+            <LinkContainer to="/examples">
+              <NavItem>Examples</NavItem>
             </LinkContainer>
-            <NavDropdown title="Examples" id="collapsible-navbar-dropdown">
-              <LinkContainer to={'/examples/basic'}>
-                <MenuItem>Basic</MenuItem>
-              </LinkContainer>
-            </NavDropdown>
-            <NavItem eventKey={2} href="https://github.com/luqin/react-icheck" target="_blank">GitHub</NavItem>
+            <NavItem href="api" target="_blank">API</NavItem>
+            <NavItem eventKey={2} href="//github.com/luqin/react-icheck" target="_blank">GitHub</NavItem>
           </Nav>
         </Navbar>
         <Grid>

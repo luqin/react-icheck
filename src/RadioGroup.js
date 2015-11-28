@@ -1,5 +1,6 @@
 import React from 'react';
 import RadioButton from './Radio';
+import warning from 'warning';
 
 class RadioGroup extends React.Component {
 
@@ -32,9 +33,6 @@ class RadioGroup extends React.Component {
     this.setState({numberCheckedRadioButtons: cnt});
   }
 
-  componentDidMount() {
-  }
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.hasOwnProperty('value')) {
       this.setState({
@@ -65,15 +63,15 @@ class RadioGroup extends React.Component {
   updateRadioButtons(newValue) {
     if (this.state.numberCheckedRadioButtons === 0) {
       this.setState({value: newValue});
-    } else if (process.env.NODE_ENV !== 'production') {
+    } else {
       let message = 'Cannot select a different radio button while another radio button ' +
         'has the \'checked\' property set to true.';
-      console.error(message);
+      warning(false, message);
     }
   }
 
-  handleRadioChange(e, newValue) {
-    newValue = e.target.value;
+  handleRadioChange(e /* TODO , newValue */) {
+    let newValue = e.target.value;
 
     this.updateRadioButtons(newValue);
 

@@ -1,9 +1,56 @@
-import React from 'react';
-import classnames from 'classnames';
-import warning from 'warning';
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/EnhancedSwitch.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
 
-const _iCheck = 'iCheck';
-const _iCheckHelper = _iCheck + '-helper';
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="git+https://github.com/luqin/react-icheck.git">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Checkbox.js~Checkbox.html">Checkbox</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/EnhancedSwitch.js~EnhancedSwitch.html">EnhancedSwitch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Radio.js~Radio.html">Radio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/RadioGroup.js~RadioGroup.html">RadioGroup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-checkbox">checkbox</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-enhancedSwitch">enhancedSwitch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-radio">radio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-radioGroup">radioGroup</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/EnhancedSwitch.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
+import classnames from &apos;classnames&apos;;
+import warning from &apos;warning&apos;;
+
+const _iCheck = &apos;iCheck&apos;;
+const _iCheckHelper = _iCheck + &apos;-helper&apos;;
 const _mobile = /ipad|iphone|ipod|android|blackberry|windows phone|opera mini|silk/i.test(navigator.userAgent);
 
 class EnhancedSwitch extends React.Component {
@@ -22,7 +69,9 @@ class EnhancedSwitch extends React.Component {
     onBlur: React.PropTypes.func,
     onFocus: React.PropTypes.func,
 
-    // base class added to customized checkboxes
+    /**
+     * base class added to customized checkboxes
+     */
     checkboxClass: React.PropTypes.string,
 
     // base class added to customized radio buttons
@@ -31,42 +80,42 @@ class EnhancedSwitch extends React.Component {
     // class added on checked state (input.checked = true)
     checkedClass: React.PropTypes.string,
 
-    // if not empty, used instead of 'checkedClass' option (input type specific)
+    // if not empty, used instead of &apos;checkedClass&apos; option (input type specific)
     checkedCheckboxClass: React.PropTypes.string,
     checkedRadioClass: React.PropTypes.string,
 
     // if not empty, added as class name on unchecked state (input.checked = false)
     uncheckedClass: React.PropTypes.string,
 
-    // if not empty, used instead of 'uncheckedClass' option (input type specific)
+    // if not empty, used instead of &apos;uncheckedClass&apos; option (input type specific)
     uncheckedCheckboxClass: React.PropTypes.string,
     uncheckedRadioClass: React.PropTypes.string,
 
     // class added on disabled state (input.disabled = true)
     disabledClass: React.PropTypes.string,
 
-    // if not empty, used instead of 'disabledClass' option (input type specific)
+    // if not empty, used instead of &apos;disabledClass&apos; option (input type specific)
     disabledCheckboxClass: React.PropTypes.string,
     disabledRadioClass: React.PropTypes.string,
 
     // if not empty, added as class name on enabled state (input.disabled = false)
     enabledClass: React.PropTypes.string,
 
-    // if not empty, used instead of 'enabledClass' option (input type specific)
+    // if not empty, used instead of &apos;enabledClass&apos; option (input type specific)
     enabledCheckboxClass: React.PropTypes.string,
     enabledRadioClass: React.PropTypes.string,
 
     // class added on indeterminate state (input.indeterminate = true)
     indeterminateClass: React.PropTypes.string,
 
-    // if not empty, used instead of 'indeterminateClass' option (input type specific)
+    // if not empty, used instead of &apos;indeterminateClass&apos; option (input type specific)
     indeterminateCheckboxClass: React.PropTypes.string,
     indeterminateRadioClass: React.PropTypes.string,
 
     // if not empty, added as class name on determinate state (input.indeterminate = false)
     determinateClass: React.PropTypes.string,
 
-    // if not empty, used instead of 'determinateClass' option (input type specific)
+    // if not empty, used instead of &apos;determinateClass&apos; option (input type specific)
     determinateCheckboxClass: React.PropTypes.string,
     determinateRadioClass: React.PropTypes.string,
 
@@ -88,13 +137,13 @@ class EnhancedSwitch extends React.Component {
     // increase clickable area by given % (negative number to decrease)
     increaseArea: React.PropTypes.string,
 
-    // true to set 'pointer' CSS cursor over enabled inputs and 'default' over disabled
+    // true to set &apos;pointer&apos; CSS cursor over enabled inputs and &apos;default&apos; over disabled
     cursor: React.PropTypes.bool,
 
-    // set true to inherit original input's class name
+    // set true to inherit original input&apos;s class name
     inheritClass: React.PropTypes.bool,
 
-    // if set to true, input's id is prefixed with 'iCheck-' and attached
+    // if set to true, input&apos;s id is prefixed with &apos;iCheck-&apos; and attached
     inheritID: React.PropTypes.bool,
 
     // set true to activate ARIA support
@@ -109,91 +158,91 @@ class EnhancedSwitch extends React.Component {
   static defaultProps = {
     defaultChecked: false,
 
-    checkboxClass: 'icheckbox',
+    checkboxClass: &apos;icheckbox&apos;,
 
     // base class added to customized radio buttons
-    radioClass: 'iradio',
+    radioClass: &apos;iradio&apos;,
 
     // class added on checked state (input.checked = true)
-    checkedClass: 'checked',
+    checkedClass: &apos;checked&apos;,
 
-    // if not empty, used instead of 'checkedClass' option (input type specific)
-    checkedCheckboxClass: '',
-    checkedRadioClass: '',
+    // if not empty, used instead of &apos;checkedClass&apos; option (input type specific)
+    checkedCheckboxClass: &apos;&apos;,
+    checkedRadioClass: &apos;&apos;,
 
     // if not empty, added as class name on unchecked state (input.checked = false)
-    uncheckedClass: '',
+    uncheckedClass: &apos;&apos;,
 
-    // if not empty, used instead of 'uncheckedClass' option (input type specific)
-    uncheckedCheckboxClass: '',
-    uncheckedRadioClass: '',
+    // if not empty, used instead of &apos;uncheckedClass&apos; option (input type specific)
+    uncheckedCheckboxClass: &apos;&apos;,
+    uncheckedRadioClass: &apos;&apos;,
 
     // class added on disabled state (input.disabled = true)
-    disabledClass: 'disabled',
+    disabledClass: &apos;disabled&apos;,
 
-    // if not empty, used instead of 'disabledClass' option (input type specific)
-    disabledCheckboxClass: '',
-    disabledRadioClass: '',
+    // if not empty, used instead of &apos;disabledClass&apos; option (input type specific)
+    disabledCheckboxClass: &apos;&apos;,
+    disabledRadioClass: &apos;&apos;,
 
     // if not empty, added as class name on enabled state (input.disabled = false)
-    enabledClass: '',
+    enabledClass: &apos;&apos;,
 
-    // if not empty, used instead of 'enabledClass' option (input type specific)
-    enabledCheckboxClass: '',
-    enabledRadioClass: '',
+    // if not empty, used instead of &apos;enabledClass&apos; option (input type specific)
+    enabledCheckboxClass: &apos;&apos;,
+    enabledRadioClass: &apos;&apos;,
 
     // class added on indeterminate state (input.indeterminate = true)
-    indeterminateClass: 'indeterminate',
+    indeterminateClass: &apos;indeterminate&apos;,
 
-    // if not empty, used instead of 'indeterminateClass' option (input type specific)
-    indeterminateCheckboxClass: '',
-    indeterminateRadioClass: '',
+    // if not empty, used instead of &apos;indeterminateClass&apos; option (input type specific)
+    indeterminateCheckboxClass: &apos;&apos;,
+    indeterminateRadioClass: &apos;&apos;,
 
     // if not empty, added as class name on determinate state (input.indeterminate = false)
-    determinateClass: '',
+    determinateClass: &apos;&apos;,
 
-    // if not empty, used instead of 'determinateClass' option (input type specific)
-    determinateCheckboxClass: '',
-    determinateRadioClass: '',
+    // if not empty, used instead of &apos;determinateClass&apos; option (input type specific)
+    determinateCheckboxClass: &apos;&apos;,
+    determinateRadioClass: &apos;&apos;,
 
     // class added on hover state (pointer is moved onto input)
-    hoverClass: 'hover',
+    hoverClass: &apos;hover&apos;,
 
     // class added on focus state (input has gained focus)
-    focusClass: 'focus',
+    focusClass: &apos;focus&apos;,
 
     // class added on active state (mouse button is pressed on input)
-    activeClass: 'active',
+    activeClass: &apos;active&apos;,
 
     // adds hoverClass to customized input on label hover and labelHoverClass to label on input hover
     labelHover: true,
 
     // class added to label if labelHover set to true
-    labelHoverClass: 'hover',
+    labelHoverClass: &apos;hover&apos;,
 
     // increase clickable area by given % (negative number to decrease)
-    increaseArea: '',
+    increaseArea: &apos;&apos;,
 
-    // true to set 'pointer' CSS cursor over enabled inputs and 'default' over disabled
+    // true to set &apos;pointer&apos; CSS cursor over enabled inputs and &apos;default&apos; over disabled
     cursor: false,
 
-    // set true to inherit original input's class name
+    // set true to inherit original input&apos;s class name
     inheritClass: false,
 
-    // if set to true, input's id is prefixed with 'iCheck-' and attached
+    // if set to true, input&apos;s id is prefixed with &apos;iCheck-&apos; and attached
     inheritID: false,
 
     // set true to activate ARIA support
     aria: false,
 
     // add HTML code or text inside customized input
-    insert: '',
+    insert: &apos;&apos;,
   };
 
   constructor(props) {
     super(props);
     let checked = false;
-    if ('checked' in props) {
+    if (&apos;checked&apos; in props) {
       checked = props.checked;
     } else {
       checked = props.defaultChecked;
@@ -211,7 +260,7 @@ class EnhancedSwitch extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if ('checked' in nextProps) {
+    if (&apos;checked&apos; in nextProps) {
       this.setState({
         checked: nextProps.checked,
       });
@@ -230,11 +279,11 @@ class EnhancedSwitch extends React.Component {
   }
 
   setChecked(newCheckedValue) {
-    if (!this.props.hasOwnProperty('checked') || this.props.checked === false) {
+    if (!this.props.hasOwnProperty(&apos;checked&apos;) || this.props.checked === false) {
       // TODO: this.props.onParentShouldUpdate(newSwitchedValue);
       this.refs.checkbox.checked = newCheckedValue;
     } else {
-      let message = 'Cannot call set method while checked is defined as a property.';
+      let message = &apos;Cannot call set method while checked is defined as a property.&apos;;
       warning(false, message);
     }
   }
@@ -245,14 +294,14 @@ class EnhancedSwitch extends React.Component {
 
   adjustStyle() {
     const {inputContainer} = this.refs;
-    if (inputContainer.style.position === 'static') {
-      inputContainer.style.position = 'relative';
+    if (inputContainer.style.position === &apos;static&apos;) {
+      inputContainer.style.position = &apos;relative&apos;;
     }
   }
 
   handleChange(e) {
     const checked = e.target.checked;
-    if (!('checked' in this.props)) {
+    if (!(&apos;checked&apos; in this.props)) {
       this.setState({
         checked: checked,
       });
@@ -295,14 +344,14 @@ class EnhancedSwitch extends React.Component {
 
     let newChecked = !this.refs.checkbox.checked;
 
-    if (!('checked' in this.props)) {
+    if (!(&apos;checked&apos; in this.props)) {
       this.refs.checkbox.checked = newChecked;
       this.setState({
         checked: newChecked,
       });
     }
 
-    if (this.props.onChange && !this.props.label) {
+    if (this.props.onChange &amp;&amp; !this.props.label) {
       this.props.onChange(event, newChecked);
     }
   }
@@ -329,45 +378,45 @@ class EnhancedSwitch extends React.Component {
     let {checked} = this.state;
 
     // Setup clickable area
-    let area = ('' + props.increaseArea).replace('%', '') | 0;
+    let area = (&apos;&apos; + props.increaseArea).replace(&apos;%&apos;, &apos;&apos;) | 0;
 
     // Clickable area limit
-    if (area < -50) {
+    if (area &lt; -50) {
       area = -50;
     }
 
     let id = props.id;
 
     // Layer styles
-    let offset = -area + '%';
-    let size = 100 + (area * 2) + '%';
+    let offset = -area + &apos;%&apos;;
+    let size = 100 + (area * 2) + &apos;%&apos;;
     let layer = {
-      position: 'absolute',
+      position: &apos;absolute&apos;,
       top: offset,
       left: offset,
-      display: 'block',
+      display: &apos;block&apos;,
       width: size,
       height: size,
       margin: 0,
       padding: 0,
-      background: '#fff',
+      background: &apos;#fff&apos;,
       border: 0,
       opacity: 0,
-      cursor: disabled ? 'default' : 'pointer',
+      cursor: disabled ? &apos;default&apos; : &apos;pointer&apos;,
     };
 
     // Choose how to hide input
     let hide;
     if (_mobile) {
       hide = {
-        position: 'absolute',
-        visibility: 'hidden',
+        position: &apos;absolute&apos;,
+        visibility: &apos;hidden&apos;,
       };
     } else if (area) {
       hide = layer;
     } else {
       hide = {
-        position: 'absolute',
+        position: &apos;absolute&apos;,
         opacity: 0,
       };
     }
@@ -376,14 +425,14 @@ class EnhancedSwitch extends React.Component {
     let aria = !!props.aria;
 
     // TODO: Set ARIA placeholder
-    // let ariaID = _iCheck + '-' + Math.random().toString(36).substr(2, 6);
+    // let ariaID = _iCheck + &apos;-&apos; + Math.random().toString(36).substr(2, 6);
 
     let helper;
 
     const wrapProps = {
       className: classnames({
-        [props.checkboxClass]: props.inputType === 'checkbox',
-        [props.radioClass]: props.inputType === 'radio',
+        [props.checkboxClass]: props.inputType === &apos;checkbox&apos;,
+        [props.radioClass]: props.inputType === &apos;radio&apos;,
         [props.checkedClass]: checked,
         [props.disabledClass]: disabled,
         [props.hoverClass]: this.state.hovered,
@@ -394,16 +443,16 @@ class EnhancedSwitch extends React.Component {
 
     if (aria) {
       wrapProps.role = props.inputType;
-      // Set ARIA "labelledby"
-      wrapProps['aria-labelledby'] = '';
+      // Set ARIA &quot;labelledby&quot;
+      wrapProps[&apos;aria-labelledby&apos;] = &apos;&apos;;
     }
 
     if (props.inheritClass) {
       wrapProps.className = classnames(wrapProps.className, props.className);
     }
 
-    if (props.inheritID && id) {
-      wrapProps.id = _iCheck + '-' + id;
+    if (props.inheritID &amp;&amp; id) {
+      wrapProps.id = _iCheck + &apos;-&apos; + id;
     }
 
     const helperProps = {
@@ -413,10 +462,10 @@ class EnhancedSwitch extends React.Component {
     };
 
     // Layer addition
-    helper = <ins {...helperProps}/>;
+    helper = &lt;ins {...helperProps}/&gt;;
 
     const inputProps = {
-      ref: 'checkbox',
+      ref: &apos;checkbox&apos;,
       type: props.inputType,
       style: hide,
       name: name,
@@ -429,23 +478,23 @@ class EnhancedSwitch extends React.Component {
     };
 
     const inputElement = (
-      <input
+      &lt;input
         {...other}
         {...inputProps}
-      />
+      /&gt;
     );
 
     let insertElement = props.insert;
     if (!React.isValidElement(insertElement)) {
-      insertElement = <div dangerouslySetInnerHTML={{__html: insertElement}}></div>;
+      insertElement = &lt;div dangerouslySetInnerHTML={{__html: insertElement}}&gt;&lt;/div&gt;;
     }
 
     const inputContainer = (
-      <div ref="inputContainer" {...wrapProps}>
+      &lt;div ref=&quot;inputContainer&quot; {...wrapProps}&gt;
         {inputElement}
         {insertElement}
         {helper}
-      </div>
+      &lt;/div&gt;
     );
 
     let labelElement = props.label;
@@ -453,7 +502,7 @@ class EnhancedSwitch extends React.Component {
       return inputContainer;
     }
     if (!React.isValidElement(labelElement)) {
-      labelElement = <span dangerouslySetInnerHTML={{__html: labelElement}}/>;
+      labelElement = &lt;span dangerouslySetInnerHTML={{__html: labelElement}}/&gt;;
     }
 
     // Label events
@@ -466,9 +515,9 @@ class EnhancedSwitch extends React.Component {
       const etype = event.type;
 
       // Click
-      if (etype === 'click') {
+      if (etype === &apos;click&apos;) {
         // FIXME
-        // if ($(event.target).is('a')) {
+        // if ($(event.target).is(&apos;a&apos;)) {
         //  return;
         // }
         // Hover state
@@ -494,12 +543,29 @@ class EnhancedSwitch extends React.Component {
     };
 
     return (
-      <label {...labelProps}>
+      &lt;label {...labelProps}&gt;
         {inputContainer}
         {labelElement}
-      </label>
+      &lt;/label&gt;
     );
   }
 }
 
 export default EnhancedSwitch;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.3)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
