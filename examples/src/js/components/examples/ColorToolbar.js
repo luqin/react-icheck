@@ -2,7 +2,10 @@ import React from 'react';
 
 class ColorToolbar extends React.Component {
 
-  static propTypes = {};
+  static propTypes = {
+    color: React.PropTypes.string,
+    onChange: React.PropTypes.func,
+  };
 
   static defaultProps = {
     color: '',

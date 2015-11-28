@@ -4,6 +4,10 @@ import {Checkbox, Radio} from 'react-icheck';
 
 class PolarisSkin extends React.Component {
 
+  static propTypes = {
+    color: React.PropTypes.string,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
