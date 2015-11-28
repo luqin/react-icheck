@@ -10,17 +10,15 @@ import {
   NavBrand,
   Nav,
   NavItem,
-  NavDropdown,
-  MenuItem,
   Grid,
   Row,
-  Col
+  Col,
 } from 'react-bootstrap';
 
 class App extends React.Component {
 
   static propTypes = {
-    children: React.PropTypes.node
+    children: React.PropTypes.node,
   };
 
   render() {

@@ -5,6 +5,12 @@ import ColorToolbar from './ColorToolbar';
 
 class SkinDemo extends React.Component {
 
+  static propTypes = {
+    color: React.PropTypes.string,
+    skin: React.PropTypes.string,
+    title: React.PropTypes.string,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
