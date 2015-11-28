@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel ./src -d lib",
     "gh-pages": "gulp publish:examples",
-    "lint": "eslint src examples",
+    "lint": "eslint src examples/src",
     "start": "gulp dev",
     "test": "npm run lint",
     "postinstall": "node ./npm-scripts/postinstall.js"
@@ -32,7 +32,8 @@
     "babel-plugin-object-assign": "^1.1.0",
     "bootstrap": "3.3.5",
     "eslint": "^1.8.0",
-    "eslint-config-onefe": "0.0.4",
+    "eslint-config-airbnb": "1.0.2",
+    "eslint-config-onefe": "0.1.0",
     "eslint-plugin-react": "^3.7.1",
     "gulp": "^3.9.0",
     "history": "^1.12.3",
