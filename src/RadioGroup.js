@@ -13,8 +13,6 @@ class RadioGroup extends React.Component {
     className: React.PropTypes.string,
   };
 
-  static defaultProps = {};
-
   constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +28,7 @@ class RadioGroup extends React.Component {
       if (this.hasCheckAttribute(option)) cnt++;
     }, this);
 
-    this.setState({numberCheckedRadioButtons: cnt});
+    this.setState({ numberCheckedRadioButtons: cnt });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -39,9 +37,6 @@ class RadioGroup extends React.Component {
         value: nextProps.value,
       });
     }
-  }
-
-  componentWillUnmount() {
   }
 
   getValue() {
@@ -62,7 +57,7 @@ class RadioGroup extends React.Component {
 
   updateRadioButtons(newValue) {
     if (this.state.numberCheckedRadioButtons === 0) {
-      this.setState({value: newValue});
+      this.setState({ value: newValue });
     } else {
       let message = 'Cannot select a different radio button while another radio button ' +
         'has the \'checked\' property set to true.';
