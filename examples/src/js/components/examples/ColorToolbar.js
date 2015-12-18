@@ -19,11 +19,11 @@ class ColorToolbar extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({color: nextProps.color});
+    this.setState({ color: nextProps.color });
   }
 
   handleColor(color) {
-    this.setState({color});
+    this.setState({ color });
     if (this.props.onChange) {
       this.props.onChange(color);
     }
@@ -32,7 +32,7 @@ class ColorToolbar extends React.Component {
   render() {
     const colors = 'Black Red Green Blue Aero Grey Orange Yellow Pink Purple'.split(' ');
 
-    const lis = colors.map(color=> {
+    const lis = colors.map(color => {
       let newColor = color.toLowerCase();
       if (newColor === 'black') {
         newColor = '';

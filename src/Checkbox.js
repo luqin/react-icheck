@@ -9,12 +9,6 @@ class Checkbox extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
   getValue() {
     return this.refs.enhancedSwitch.getValue();
   }

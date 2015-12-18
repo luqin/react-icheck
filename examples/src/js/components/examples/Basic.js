@@ -1,7 +1,7 @@
 import './style.scss';
 
 import React from 'react';
-import {PageHeader} from 'react-bootstrap';
+import { PageHeader } from 'react-bootstrap';
 import Demo from './Demo';
 import SkinDemo from './SkinDemo';
 import LineSkin from './LineSkin';

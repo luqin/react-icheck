@@ -1,6 +1,6 @@
 import React from 'react';
-import {Panel, Row, Col} from 'react-bootstrap';
-import {Checkbox, Radio} from 'react-icheck';
+import { Panel, Row, Col } from 'react-bootstrap';
+import { Checkbox, Radio } from 'react-icheck';
 import ColorToolbar from './ColorToolbar';
 
 class SkinDemo extends React.Component {
@@ -27,7 +27,7 @@ class SkinDemo extends React.Component {
   }
 
   getCheckboxClass() {
-    const {skin, color} = this.state;
+    const { skin, color } = this.state;
     if (color) {
       return `icheckbox_${skin}-${color}`;
     }
@@ -35,7 +35,7 @@ class SkinDemo extends React.Component {
   }
 
   getRadioClass() {
-    const {skin, color} = this.state;
+    const { skin, color } = this.state;
     if (color) {
       return `iradio_${skin}-${color}`;
     }
@@ -43,7 +43,7 @@ class SkinDemo extends React.Component {
   }
 
   handleColor(color) {
-    this.setState({color});
+    this.setState({ color });
   }
 
   render() {

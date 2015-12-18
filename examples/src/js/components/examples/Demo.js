@@ -1,6 +1,6 @@
 import React from 'react';
-import {Panel, Row, Col} from 'react-bootstrap';
-import {Checkbox, Radio, RadioGroup} from 'react-icheck';
+import { Panel, Row, Col } from 'react-bootstrap';
+import { Checkbox, Radio, RadioGroup } from 'react-icheck';
 
 class Demo extends React.Component {
 

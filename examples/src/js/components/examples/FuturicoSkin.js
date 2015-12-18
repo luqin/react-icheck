@@ -1,6 +1,6 @@
 import React from 'react';
-import {Panel, Row, Col} from 'react-bootstrap';
-import {Checkbox, Radio} from 'react-icheck';
+import { Panel, Row, Col } from 'react-bootstrap';
+import { Checkbox, Radio } from 'react-icheck';
 
 class FuturicoSkin extends React.Component {
 
@@ -17,7 +17,7 @@ class FuturicoSkin extends React.Component {
   }
 
   getCheckboxClass() {
-    const {skin, color} = this.state;
+    const { skin, color } = this.state;
     if (color) {
       return `icheckbox_${skin}-${color}`;
     }
@@ -25,7 +25,7 @@ class FuturicoSkin extends React.Component {
   }
 
   getRadioClass() {
-    const {skin, color} = this.state;
+    const { skin, color } = this.state;
     if (color) {
       return `iradio_${skin}-${color}`;
     }

@@ -244,7 +244,7 @@ class EnhancedSwitch extends React.Component {
   }
 
   adjustStyle() {
-    const {inputContainer} = this.refs;
+    const { inputContainer } = this.refs;
     if (inputContainer.style.position === 'static') {
       inputContainer.style.position = 'relative';
     }
@@ -254,7 +254,7 @@ class EnhancedSwitch extends React.Component {
     const checked = e.target.checked;
     if (!('checked' in this.props)) {
       this.setState({
-        checked: checked,
+        checked,
       });
     }
     if (this.props.onChange) {
@@ -309,7 +309,7 @@ class EnhancedSwitch extends React.Component {
 
   render() {
     let props = this.props;
-    let {disabled} = props;
+    let { disabled } = props;
     let {
       type,
       name,
@@ -326,7 +326,7 @@ class EnhancedSwitch extends React.Component {
       ...other,
       } = props;
 
-    let {checked} = this.state;
+    let { checked } = this.state;
 
     // Setup clickable area
     let area = ('' + props.increaseArea).replace('%', '') | 0;
@@ -419,8 +419,8 @@ class EnhancedSwitch extends React.Component {
       ref: 'checkbox',
       type: props.inputType,
       style: hide,
-      name: name,
-      value: value,
+      name,
+      value,
       defaultChecked: props.defaultChecked,
       // checked: !!checked,
       onChange: this.handleChange.bind(this),
@@ -437,7 +437,7 @@ class EnhancedSwitch extends React.Component {
 
     let insertElement = props.insert;
     if (!React.isValidElement(insertElement)) {
-      insertElement = <div dangerouslySetInnerHTML={{__html: insertElement}}></div>;
+      insertElement = <div dangerouslySetInnerHTML={{ __html: insertElement }}></div>;
     }
 
     const inputContainer = (
@@ -453,7 +453,7 @@ class EnhancedSwitch extends React.Component {
       return inputContainer;
     }
     if (!React.isValidElement(labelElement)) {
-      labelElement = <span dangerouslySetInnerHTML={{__html: labelElement}}/>;
+      labelElement = <span dangerouslySetInnerHTML={{ __html: labelElement }}/>;
     }
 
     // Label events
