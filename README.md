@@ -37,23 +37,38 @@ npm install react-icheck icheck --save
 
 ```js
 import 'icheck/skins/all.css'; // or single skin css
+
 import {Checkbox, Radio} from 'react-icheck';
 
+// Checkbox with label
 <Checkbox
   checkboxClass="icheckbox_square-blue"
   increaseArea="20%"
   label="Checkbox"
 />
 
+// without label
+<Checkbox
+  id="checkbox1"
+  checkboxClass="icheckbox_square-blue"
+  increaseArea="20%"
+/>
+<label for="checkbox1">First name</label>
+
+// Radio
 <Radio
   name="aa"
   radioClass="iradio_square-blue"
   increaseArea="20%"
   label="Radio"
 />
+
+
 ```
 
 ```js
+import {Radio, RadioGroup} from 'react-icheck';
+
 <RadioGroup name="radio" value="3">
     <Radio
       value="3"
