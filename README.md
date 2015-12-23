@@ -62,8 +62,6 @@ import {Checkbox, Radio} from 'react-icheck';
   increaseArea="20%"
   label="Radio"
 />
-
-
 ```
 
 ```js
