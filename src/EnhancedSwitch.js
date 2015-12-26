@@ -492,6 +492,11 @@ class EnhancedSwitch extends React.Component {
       onTouchStart: handleLabelEvent.bind(this),
       onTouchEnd: handleLabelEvent.bind(this),
     };
+    
+    // add className prop for outer label
+    if (this.props.outerLabelClassName) {
+      labelProps.className = outerLabelClassName;
+    }
 
     return (
       <label {...labelProps}>
