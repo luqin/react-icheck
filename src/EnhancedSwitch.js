@@ -104,6 +104,9 @@ class EnhancedSwitch extends React.Component {
     insert: React.PropTypes.node,
 
     children: React.PropTypes.node,
+    
+    // class added for outer label
+    labelClassName: React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -494,8 +497,8 @@ class EnhancedSwitch extends React.Component {
     };
     
     // add className prop for outer label
-    if (this.props.outerLabelClassName) {
-      labelProps.className = outerLabelClassName;
+    if (this.props.labelClassName) {
+      labelProps.className = this.props.labelClassName;
     }
 
     return (
