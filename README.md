@@ -100,6 +100,8 @@ Mobile browsers (like Opera mini, Chrome mobile, Safari mobile, Android browser,
 
 ## Local Setup
 
+Dev base on [react-component-tools](https://github.com/luqin/react-component-tools)
+
 * Install the dependencies with `npm install`
 * Run the docs site in development mode with `npm start`. This will watch for file changes as you work. And auto refresh the page to see the updates.
 
