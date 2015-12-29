@@ -1,5 +1,5 @@
-var gulp = require('gulp'),
-    initGulpTasks = require('react-pack'),
-    taskConfig = require('./config');
+var gulp = require('gulp');
+var initGulpTasks = require('react-component-tools');
+var taskConfig = require('./config');
 
 initGulpTasks(gulp, taskConfig);
