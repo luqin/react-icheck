@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import warning from 'warning';
 
 const _iCheck = 'iCheck';
 const _iCheckHelper = _iCheck + '-helper';
@@ -117,44 +116,11 @@ class EnhancedSwitch extends React.Component {
     // class added on checked state (input.checked = true)
     checkedClass: 'checked',
 
-    // if not empty, used instead of 'checkedClass' option (input type specific)
-    checkedCheckboxClass: '',
-    checkedRadioClass: '',
-
-    // if not empty, added as class name on unchecked state (input.checked = false)
-    uncheckedClass: '',
-
-    // if not empty, used instead of 'uncheckedClass' option (input type specific)
-    uncheckedCheckboxClass: '',
-    uncheckedRadioClass: '',
-
     // class added on disabled state (input.disabled = true)
     disabledClass: 'disabled',
 
-    // if not empty, used instead of 'disabledClass' option (input type specific)
-    disabledCheckboxClass: '',
-    disabledRadioClass: '',
-
-    // if not empty, added as class name on enabled state (input.disabled = false)
-    enabledClass: '',
-
-    // if not empty, used instead of 'enabledClass' option (input type specific)
-    enabledCheckboxClass: '',
-    enabledRadioClass: '',
-
     // class added on indeterminate state (input.indeterminate = true)
     indeterminateClass: 'indeterminate',
-
-    // if not empty, used instead of 'indeterminateClass' option (input type specific)
-    indeterminateCheckboxClass: '',
-    indeterminateRadioClass: '',
-
-    // if not empty, added as class name on determinate state (input.indeterminate = false)
-    determinateClass: '',
-
-    // if not empty, used instead of 'determinateClass' option (input type specific)
-    determinateCheckboxClass: '',
-    determinateRadioClass: '',
 
     // class added on hover state (pointer is moved onto input)
     hoverClass: 'hover',
@@ -185,9 +151,6 @@ class EnhancedSwitch extends React.Component {
 
     // set true to activate ARIA support
     aria: false,
-
-    // add HTML code or text inside customized input
-    insert: '',
   };
 
   constructor(props) {
@@ -222,9 +185,6 @@ class EnhancedSwitch extends React.Component {
     this.adjustStyle();
   }
 
-  componentWillUnmount() {
-  }
-
   getValue() {
     return this.refs.checkbox.value;
   }
@@ -234,8 +194,10 @@ class EnhancedSwitch extends React.Component {
       // TODO: this.props.onParentShouldUpdate(newSwitchedValue);
       this.refs.checkbox.checked = newCheckedValue;
     } else {
-      let message = 'Cannot call set method while checked is defined as a property.';
-      warning(false, message);
+      if (process.env.NODE_ENV !== 'production') {
+        let message = 'Cannot call set method while checked is defined as a property.';
+        console.error(message); // eslint-disable-line
+      }
     }
   }
 
@@ -435,8 +397,8 @@ class EnhancedSwitch extends React.Component {
       />
     );
 
-    let insertElement = props.insert;
-    if (!React.isValidElement(insertElement)) {
+    let insertElement = props.insert || undefined;
+    if (insertElement && !React.isValidElement(insertElement)) {
       insertElement = <div dangerouslySetInnerHTML={{ __html: insertElement }}></div>;
     }
 

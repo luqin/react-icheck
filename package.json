@@ -1,24 +1,23 @@
 {
   "name": "react-icheck",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "iCheck components built with React. Highly customizable checkboxes and radio buttons",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel ./src -d lib",
     "gh-pages": "gulp publish:examples",
     "lint": "eslint src examples/src",
+    "prepublish": "npm run build",
     "start": "gulp dev",
-    "test": "npm run lint",
-    "postinstall": "node ./npm-scripts/postinstall.js"
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luqin/react-icheck.git"
+    "url": "https://github.com/luqin/react-icheck"
   },
   "license": "ISC",
   "peerDependencies": {
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react": "^0.14.0"
   },
   "dependencies": {
     "babel-runtime": "^5.8.20",
