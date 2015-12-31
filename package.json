@@ -9,7 +9,7 @@
     "lint": "eslint src examples/src",
     "prepublish": "npm run build",
     "start": "gulp dev",
-    "test": "npm run lint"
+    "test": "npm run lint && gulp build --p"
   },
   "repository": {
     "type": "git",
