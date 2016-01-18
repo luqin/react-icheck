@@ -265,6 +265,8 @@ class EnhancedSwitch extends React.Component {
     }
 
     if (this.props.onChange && !this.props.label) {
+      event.preventDefault();
+      event.stopPropagation();
       this.props.onChange(event, newChecked);
     }
   }
