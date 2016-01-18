@@ -15,7 +15,16 @@ class Demo extends React.Component {
       i3checked: false,
       i2disabled: false,
       i4disabled: false,
+      radioValue: '3',
     };
+
+    this.handle1 = this.handle1.bind(this);
+    this.handle2 = this.handle2.bind(this);
+    this.handle3 = this.handle3.bind(this);
+    this.handle4 = this.handle4.bind(this);
+    this.handle1Change = this.handle1Change.bind(this);
+    this.handle3Change = this.handle3Change.bind(this);
+    this.handleRadioChange = this.handleRadioChange.bind(this);
   }
 
   componentDidMount() {
@@ -25,6 +34,7 @@ class Demo extends React.Component {
     this.setState({
       i1checked: true,
       i3checked: true,
+      radioValue: '3',
     });
   }
 
@@ -32,6 +42,7 @@ class Demo extends React.Component {
     this.setState({
       i1checked: false,
       i3checked: false,
+      radioValue: this.state.radioValue === '3' ? null : this.state.radioValue,
     });
   }
 
@@ -61,6 +72,12 @@ class Demo extends React.Component {
     });
   }
 
+  handleRadioChange(event, value) {
+    this.setState({
+      radioValue: value,
+    });
+  }
+
   render() {
     return (
       <div className="demo">
@@ -73,7 +90,7 @@ class Demo extends React.Component {
                 increaseArea="20%"
                 label="Checkbox, <span class='label1'>#input-1</span>"
                 checked={this.state.i1checked}
-                onChange={this.handle1Change.bind(this)}
+                onChange={this.handle1Change}
               />
               <br/>
               <Checkbox
@@ -92,7 +109,7 @@ class Demo extends React.Component {
               />
             </Col>
             <Col md={3}>
-              <RadioGroup name="radio" value="3">
+              <RadioGroup name="radio" value={this.state.radioValue} onChange={this.handleRadioChange}>
                 <Radio
                   value="3"
                   radioClass="iradio_square-blue"
@@ -104,6 +121,7 @@ class Demo extends React.Component {
                   radioClass="iradio_square-blue"
                   increaseArea="20%"
                   label="Radio, <span class='label1'>#input-4</span>"
+                  disabled={this.state.i4disabled}
                 />
                 <Radio
                   value="5"
@@ -117,16 +135,16 @@ class Demo extends React.Component {
           </Row>
 
           <dl className="demo-methods">
-            <dt onClick={this.handle1.bind(this)}>
+            <dt onClick={this.handle1}>
               <span className="self do-check">Add <span className="mark">checked</span> state to 1 and 3 inputs</span>
             </dt>
-            <dt onClick={this.handle2.bind(this)}>
+            <dt onClick={this.handle2}>
               <span className="self do-uncheck">Remove <span className="mark">checked</span> state from 1 and 3 inputs</span>
             </dt>
-            <dt onClick={this.handle3.bind(this)}>
+            <dt onClick={this.handle3}>
               <span className="self do-disable">Add <span className="mark">disabled</span> state to 2 and 4 inputs</span>
             </dt>
-            <dt onClick={this.handle4.bind(this)}>
+            <dt onClick={this.handle4}>
               <span className="self do-enable">Remove <span className="mark">disabled</span> state from 2 and 4 inputs</span>
             </dt>
           </dl>
