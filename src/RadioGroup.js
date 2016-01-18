@@ -4,11 +4,39 @@ import RadioButton from './Radio';
 class RadioGroup extends React.Component {
 
   static propTypes = {
+    /**
+     * The name that will be applied to all radio buttons inside it.
+     */
     name: React.PropTypes.string.isRequired,
-    value: React.PropTypes.string,
+
+    /**
+     * Sets the default radio button to be the one whose
+     * value matches defaultValue (case-sensitive).
+     * This will override any individual radio button with
+     * the defaultChecked or checked property stated.
+     */
     defaultValue: React.PropTypes.string,
+
+    /**
+     * The value of the currently selected radio button.
+     */
+    value: React.PropTypes.string,
+
+    /**
+     * Callback function that is fired when a radio button has
+     * been clicked. Returns the event and the value of the radio
+     * button that has been selected.
+     */
     onChange: React.PropTypes.func,
+
+    /**
+     * Should be used to pass `Radio` components.
+     */
     children: React.PropTypes.node,
+
+    /**
+     * The css class name of the root element.
+     */
     className: React.PropTypes.string,
   };
 
@@ -66,7 +94,7 @@ class RadioGroup extends React.Component {
     }
   }
 
-  handleRadioChange(e /* TODO , newValue */) {
+  handleChange(e /* TODO , newValue */) {
     let newValue = e.target.value;
 
     this.updateRadioButtons(newValue);
@@ -80,32 +108,32 @@ class RadioGroup extends React.Component {
   }
 
   render() {
-    let children = React.Children.map(this.props.children, (radio) => {
+    let options = React.Children.map(this.props.children, (option) => {
       let {
         name,
         value,
         label,
         onChange,
         ...other,
-        } = radio.props;
+      } = option.props;
 
       return (
         <RadioButton
           {...other}
-          ref={radio.props.value}
+          ref={option.props.value}
           name={this.props.name}
-          key={radio.props.value}
-          value={radio.props.value}
-          label={radio.props.label}
-          onChange={this.handleRadioChange.bind(this)}
-          checked={radio.props.value === this.state.value}
+          key={option.props.value}
+          value={option.props.value}
+          label={option.props.label}
+          onChange={this.handleChange.bind(this)}
+          checked={option.props.value === this.state.value}
         />
       );
     }, this);
 
     return (
-      <div className={this.props.className || ''}>
-        {children}
+      <div className={this.props.className}>
+        {options}
       </div>
     );
   }
