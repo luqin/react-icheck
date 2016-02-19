@@ -207,7 +207,9 @@ class EnhancedSwitch extends React.Component {
 
   adjustStyle() {
     const { inputContainer } = this.refs;
-    if (inputContainer.style.position === 'static') {
+    const { position } = window.getComputedStyle(inputContainer);
+
+    if (position === 'static') {
       inputContainer.style.position = 'relative';
     }
   }
