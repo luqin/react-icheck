@@ -1,6 +1,6 @@
 {
   "name": "react-icheck",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "iCheck components built with React. Highly customizable checkboxes and radio buttons",
   "main": "lib/index.js",
   "scripts": {
