@@ -205,8 +205,10 @@ class EnhancedSwitch extends React.Component {
     }
   }
 
-  isChecked() {
-    return this.refs.checkbox.checked;
+  setIndeterminate() {
+    if (this.props.indeterminate) {
+      this.refs.checkbox.indetermiante = true;
+    }
   }
 
   adjustStyle() {
@@ -218,10 +220,8 @@ class EnhancedSwitch extends React.Component {
     }
   }
 
-  setIndeterminate() {
-    if (this.props.indeterminate) {
-      this.refs.checkbox.indetermiante = true;
-    }
+  isChecked() {
+    return this.refs.checkbox.checked;
   }
 
   handleChange(e) {
