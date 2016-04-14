@@ -17,6 +17,8 @@ class EnhancedSwitch extends React.Component {
 
     disabled: React.PropTypes.bool,
 
+    indeterminate: React.PropTypes.bool,
+
     onChange: React.PropTypes.func,
     onBlur: React.PropTypes.func,
     onFocus: React.PropTypes.func,
@@ -171,6 +173,7 @@ class EnhancedSwitch extends React.Component {
 
   componentDidMount() {
     this.adjustStyle();
+    this.setIndeterminate();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -183,6 +186,7 @@ class EnhancedSwitch extends React.Component {
 
   componentDidUpdate() {
     this.adjustStyle();
+    this.setIndeterminate();
   }
 
   getValue() {
@@ -211,6 +215,12 @@ class EnhancedSwitch extends React.Component {
 
     if (position === 'static') {
       inputContainer.style.position = 'relative';
+    }
+  }
+
+  setIndeterminate() {
+    if (this.props.indeterminate) {
+      this.refs.checkbox.indetermiante = true;
     }
   }
 
@@ -345,11 +355,18 @@ class EnhancedSwitch extends React.Component {
     // let ariaID = _iCheck + '-' + Math.random().toString(36).substr(2, 6);
 
     let helper;
+    let indeterminateClass = props.indeterminateClass;
+    if (props.inputType === 'checkbox' && typeof props.indeterminateCheckboxClass !== 'undefined') {
+      indeterminateClass = props.indeterminateCheckboxClass;
+    } else if (props.inputType === 'radio' && typeof props.indeterminateRadioClass !== 'undefined') {
+      indeterminateClass = props.indeterminateRadioClass;
+    }
 
     const wrapProps = {
       className: classnames({
         [props.checkboxClass]: props.inputType === 'checkbox',
         [props.radioClass]: props.inputType === 'radio',
+        [indeterminateClass]: props.indeterminate,
         [props.checkedClass]: checked,
         [props.disabledClass]: disabled,
         [props.hoverClass]: this.state.hovered,
