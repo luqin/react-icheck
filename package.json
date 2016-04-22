@@ -1,6 +1,6 @@
 {
   "name": "react-icheck",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "iCheck components built with React. Highly customizable checkboxes and radio buttons",
   "main": "lib/index.js",
   "scripts": {
@@ -17,37 +17,38 @@
   },
   "license": "ISC",
   "peerDependencies": {
-    "react": "^0.14.0"
+    "react": "^0.14.0 || ^15.0.0"
   },
   "dependencies": {
-    "babel-runtime": "^5.8.20",
-    "classnames": "^2.1.5",
+    "babel-runtime": "^5.8.38",
+    "classnames": "^2.2.3",
     "icheck": "^1.0.2"
   },
   "devDependencies": {
-    "babel": "5.8.29",
-    "babel-core": "5.8.29",
+    "babel": "5.8.38",
+    "babel-core": "5.8.38",
     "babel-eslint": "^4.1.1",
-    "babel-plugin-object-assign": "^1.1.0",
+    "babel-plugin-object-assign": "^1.2.1",
     "bootstrap": "3.3.5",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "2.1.1",
     "eslint-config-onefe": "0.2.0",
     "eslint-plugin-react": "^3.11.3",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "jquery": "^2.1.4",
     "node-sass": "3.4.2",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
     "react-bootstrap": "^0.29.1",
-    "react-component-tools": "^0.6.0",
-    "react-router": "2.0.0-rc4",
-    "react-router-bootstrap": "^0.20.0",
-    "react-router-loader": "^0.5.1",
-    "webpack": "1.12.6",
-    "webpack-dev-server": "1.12.1"
+    "react-component-tools": "^1.0.1",
+    "react-router": "^2.3.0",
+    "react-router-bootstrap": "^0.22.1",
+    "react-router-loader": "^0.5.4",
+    "webpack": "1.13.0",
+    "webpack-dev-server": "1.14.1"
   },
   "keywords": [
+    "react",
     "icheck",
     "radio",
     "checkbox",
@@ -57,7 +58,6 @@
     "form",
     "input",
     "ui",
-    "react",
     "react-dom",
     "react-icheck",
     "react-component"

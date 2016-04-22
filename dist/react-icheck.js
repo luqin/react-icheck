@@ -752,6 +752,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      disabled: _react2['default'].PropTypes.bool,
 	
+	      indeterminate: _react2['default'].PropTypes.bool,
+	
 	      onChange: _react2['default'].PropTypes.func,
 	      onBlur: _react2['default'].PropTypes.func,
 	      onFocus: _react2['default'].PropTypes.func,
@@ -914,6 +916,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.adjustStyle();
+	      this.setIndeterminate();
 	    }
 	  }, {
 	    key: 'componentWillReceiveProps',
@@ -928,6 +931,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
 	      this.adjustStyle();
+	      this.setIndeterminate();
 	    }
 	  }, {
 	    key: 'getValue',
@@ -948,18 +952,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    }
 	  }, {
-	    key: 'isChecked',
-	    value: function isChecked() {
-	      return this.refs.checkbox.checked;
+	    key: 'setIndeterminate',
+	    value: function setIndeterminate() {
+	      if (this.props.indeterminate) {
+	        this.refs.checkbox.indetermiante = true;
+	      }
 	    }
 	  }, {
 	    key: 'adjustStyle',
 	    value: function adjustStyle() {
 	      var inputContainer = this.refs.inputContainer;
 	
-	      if (inputContainer.style.position === 'static') {
+	      var _window$getComputedStyle = window.getComputedStyle(inputContainer);
+	
+	      var position = _window$getComputedStyle.position;
+	
+	      if (position === 'static') {
 	        inputContainer.style.position = 'relative';
 	      }
+	    }
+	  }, {
+	    key: 'isChecked',
+	    value: function isChecked() {
+	      return this.refs.checkbox.checked;
 	    }
 	  }, {
 	    key: 'handleChange',
@@ -1018,6 +1033,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	      }
 	
+	      event.preventDefault();
+	      event.stopPropagation();
 	      if (this.props.onChange && !this.props.label) {
 	        this.props.onChange(event, newChecked);
 	      }
@@ -1097,9 +1114,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	      // let ariaID = _iCheck + '-' + Math.random().toString(36).substr(2, 6);
 	
 	      var helper = undefined;
+	      var indeterminateClass = props.indeterminateClass;
+	      if (props.inputType === 'checkbox' && typeof props.indeterminateCheckboxClass !== 'undefined') {
+	        indeterminateClass = props.indeterminateCheckboxClass;
+	      } else if (props.inputType === 'radio' && typeof props.indeterminateRadioClass !== 'undefined') {
+	        indeterminateClass = props.indeterminateRadioClass;
+	      }
 	
 	      var wrapProps = {
-	        className: (0, _classnames3['default'])((_classnames = {}, _defineProperty(_classnames, props.checkboxClass, props.inputType === 'checkbox'), _defineProperty(_classnames, props.radioClass, props.inputType === 'radio'), _defineProperty(_classnames, props.checkedClass, checked), _defineProperty(_classnames, props.disabledClass, disabled), _defineProperty(_classnames, props.hoverClass, this.state.hovered), _defineProperty(_classnames, props.focusClass, this.state.focused), _defineProperty(_classnames, props.activeClass, this.state.active), _classnames))
+	        className: (0, _classnames3['default'])((_classnames = {}, _defineProperty(_classnames, props.checkboxClass, props.inputType === 'checkbox'), _defineProperty(_classnames, props.radioClass, props.inputType === 'radio'), _defineProperty(_classnames, indeterminateClass, props.indeterminate), _defineProperty(_classnames, props.checkedClass, checked), _defineProperty(_classnames, props.disabledClass, disabled), _defineProperty(_classnames, props.hoverClass, this.state.hovered), _defineProperty(_classnames, props.focusClass, this.state.focused), _defineProperty(_classnames, props.activeClass, this.state.active), _classnames))
 	      };
 	
 	      if (aria) {
@@ -1375,11 +1398,39 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(RadioGroup, null, [{
 	    key: 'propTypes',
 	    value: {
+	      /**
+	       * The name that will be applied to all radio buttons inside it.
+	       */
 	      name: _react2['default'].PropTypes.string.isRequired,
-	      value: _react2['default'].PropTypes.string,
+	
+	      /**
+	       * Sets the default radio button to be the one whose
+	       * value matches defaultValue (case-sensitive).
+	       * This will override any individual radio button with
+	       * the defaultChecked or checked property stated.
+	       */
 	      defaultValue: _react2['default'].PropTypes.string,
+	
+	      /**
+	       * The value of the currently selected radio button.
+	       */
+	      value: _react2['default'].PropTypes.string,
+	
+	      /**
+	       * Callback function that is fired when a radio button has
+	       * been clicked. Returns the event and the value of the radio
+	       * button that has been selected.
+	       */
 	      onChange: _react2['default'].PropTypes.func,
+	
+	      /**
+	       * Should be used to pass `Radio` components.
+	       */
 	      children: _react2['default'].PropTypes.node,
+	
+	      /**
+	       * The css class name of the root element.
+	       */
 	      className: _react2['default'].PropTypes.string
 	    },
 	    enumerable: true
@@ -1450,8 +1501,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    }
 	  }, {
-	    key: 'handleRadioChange',
-	    value: function handleRadioChange(e /* TODO , newValue */) {
+	    key: 'handleChange',
+	    value: function handleChange(e /* TODO , newValue */) {
 	      var newValue = e.target.value;
 	
 	      this.updateRadioButtons(newValue);
@@ -1468,30 +1519,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function render() {
 	      var _this2 = this;
 	
-	      var children = _react2['default'].Children.map(this.props.children, function (radio) {
-	        var _radio$props = radio.props;
-	        var name = _radio$props.name;
-	        var value = _radio$props.value;
-	        var label = _radio$props.label;
-	        var onChange = _radio$props.onChange;
+	      var options = _react2['default'].Children.map(this.props.children, function (option) {
+	        var _option$props = option.props;
+	        var name = _option$props.name;
+	        var value = _option$props.value;
+	        var label = _option$props.label;
+	        var onChange = _option$props.onChange;
 	
-	        var other = _objectWithoutProperties(_radio$props, ['name', 'value', 'label', 'onChange']);
+	        var other = _objectWithoutProperties(_option$props, ['name', 'value', 'label', 'onChange']);
 	
 	        return _react2['default'].createElement(_Radio2['default'], _extends({}, other, {
-	          ref: radio.props.value,
+	          ref: option.props.value,
 	          name: _this2.props.name,
-	          key: radio.props.value,
-	          value: radio.props.value,
-	          label: radio.props.label,
-	          onChange: _this2.handleRadioChange.bind(_this2),
-	          checked: radio.props.value === _this2.state.value
+	          key: option.props.value,
+	          value: option.props.value,
+	          label: option.props.label,
+	          onChange: _this2.handleChange.bind(_this2),
+	          checked: option.props.value === _this2.state.value
 	        }));
 	      }, this);
 	
 	      return _react2['default'].createElement(
 	        'div',
-	        { className: this.props.className || '' },
-	        children
+	        { className: this.props.className },
+	        options
 	      );
 	    }
 	  }]);

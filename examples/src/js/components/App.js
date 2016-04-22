@@ -7,7 +7,6 @@ import 'jquery';
 import 'bootstrap';
 import {
   Navbar,
-  NavBrand,
   Nav,
   NavItem,
   Grid,
@@ -25,7 +24,11 @@ class App extends React.Component {
     return (
       <div>
         <Navbar inverse staticTop toggleNavKey={0}>
-          <NavBrand><a href="#">React-iCheck</a></NavBrand>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="#">React-iCheck</a>
+            </Navbar.Brand>
+          </Navbar.Header>
           <Nav>
             <LinkContainer to="/examples">
               <NavItem>Examples</NavItem>
