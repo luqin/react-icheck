@@ -1,7 +1,7 @@
 import React from 'react';
 import { Panel, Row, Col } from 'react-bootstrap';
 import { Checkbox, Radio } from 'react-icheck';
-import ColorToolbar from './ColorToolbar';
+import ColorSchemes from './ColorSchemes';
 
 class SkinDemo extends React.Component {
 
@@ -111,7 +111,7 @@ class SkinDemo extends React.Component {
               />
             </Col>
           </Row>
-          <ColorToolbar color={this.state.color} onChange={this.handleColor.bind(this)}/>
+          <ColorSchemes color={this.state.color} onChange={this.handleColor.bind(this)}/>
         </Panel>
 
       </div>

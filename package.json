@@ -35,7 +35,6 @@
     "eslint-config-onefe": "0.2.0",
     "eslint-plugin-react": "^3.11.3",
     "gulp": "^3.9.1",
-    "jquery": "^2.1.4",
     "node-sass": "3.4.2",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",

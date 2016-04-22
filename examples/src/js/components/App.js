@@ -1,10 +1,7 @@
-import React from 'react';
-import { LinkContainer } from 'react-router-bootstrap';
-
 import 'bootstrap/dist/css/bootstrap.css';
 import 'icheck/skins/all.css';
-import 'jquery';
-import 'bootstrap';
+
+import React from 'react';
 import {
   Navbar,
   Nav,
@@ -13,6 +10,7 @@ import {
   Row,
   Col,
 } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 class App extends React.Component {
 

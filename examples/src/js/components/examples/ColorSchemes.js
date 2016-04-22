@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ColorToolbar extends React.Component {
+class ColorSchemes extends React.Component {
 
   static propTypes = {
     color: React.PropTypes.string,
@@ -58,4 +58,4 @@ class ColorToolbar extends React.Component {
   }
 }
 
-export default ColorToolbar;
+export default ColorSchemes;
