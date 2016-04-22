@@ -5,7 +5,7 @@ import { hashHistory, IndexRoute, Router, Route } from 'react-router';
 
 import App from './components/App';
 import GettingStarted from 'react-router!./components/GettingStarted';
-import PageNotFound from './components/PageNotFound';
+import PageNotFound from 'react-router!./components/PageNotFound';
 import Basic from 'react-router!./components/examples/Basic';
 
 const routes = (
