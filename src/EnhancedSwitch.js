@@ -108,7 +108,6 @@ class EnhancedSwitch extends React.Component {
   };
 
   static defaultProps = {
-    defaultChecked: false,
 
     checkboxClass: 'icheckbox',
 
