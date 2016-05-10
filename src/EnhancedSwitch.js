@@ -207,7 +207,7 @@ class EnhancedSwitch extends React.Component {
 
   setIndeterminate() {
     if (this.props.indeterminate) {
-      this.refs.checkbox.indetermiante = true;
+      this.refs.checkbox.indeterminate = true;
     }
   }
 
