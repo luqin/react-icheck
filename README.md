@@ -98,7 +98,7 @@ iCheck is verified to work in Internet Explorer 6+, Firefox 2+, Opera 9+, Google
 
 Mobile browsers (like Opera mini, Chrome mobile, Safari mobile, Android browser, Silk and others) are also supported. Tested on iOS (iPad, iPhone, iPod), Android, BlackBerry and Windows Phone devices.
 
-## Local Setup
+## Contribute
 
 Dev base on [react-component-tools](https://github.com/luqin/react-component-tools)
 
