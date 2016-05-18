@@ -102,8 +102,12 @@ Mobile browsers (like Opera mini, Chrome mobile, Safari mobile, Android browser,
 
 Dev base on [react-component-tools](https://github.com/luqin/react-component-tools)
 
-* Install the dependencies with `npm install`
-* Run the docs site in development mode with `npm start`. This will watch for file changes as you work. And auto refresh the page to see the updates.
+```sh
+$ git clone https://github.com/luqin/react-icheck.git
+$ cd react-icheck
+$ npm install
+$ npm start # Run the docs site in development mode. This will watch for file changes as you work. And auto refresh the page to see the updates.
+```
 
 ## TODO List
 
