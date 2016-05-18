@@ -109,10 +109,6 @@ $ npm install
 $ npm start # Run the docs site in development mode. This will watch for file changes as you work. And auto refresh the page to see the updates.
 ```
 
-## TODO List
-
-* Testing
-
 [npm-badge]: http://badge.fury.io/js/react-icheck.svg
 [npm]: https://www.npmjs.com/package/react-icheck
 
