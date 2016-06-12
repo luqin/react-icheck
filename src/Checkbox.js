@@ -14,11 +14,11 @@ class Checkbox extends React.Component {
   }
 
   setChecked(newCheckedValue) {
-    this.refs.enhancedSwitch.setSwitched(newCheckedValue);
+    this.refs.enhancedSwitch.setChecked(newCheckedValue);
   }
 
   isChecked() {
-    return this.refs.enhancedSwitch.isSwitched();
+    return this.refs.enhancedSwitch.isChecked();
   }
 
   render() {
