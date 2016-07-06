@@ -143,12 +143,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'setChecked',
 	    value: function setChecked(newCheckedValue) {
-	      this.refs.enhancedSwitch.setSwitched(newCheckedValue);
+	      this.refs.enhancedSwitch.setChecked(newCheckedValue);
 	    }
 	  }, {
 	    key: 'isChecked',
 	    value: function isChecked() {
-	      return this.refs.enhancedSwitch.isSwitched();
+	      return this.refs.enhancedSwitch.isChecked();
 	    }
 	  }, {
 	    key: 'render',
@@ -735,7 +735,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _iCheck = 'iCheck';
 	var _iCheckHelper = _iCheck + '-helper';
-	var _mobile = /ipad|iphone|ipod|android|blackberry|windows phone|opera mini|silk/i.test(navigator.userAgent);
 	
 	var EnhancedSwitch = (function (_React$Component) {
 	  _inherits(EnhancedSwitch, _React$Component);
@@ -845,7 +844,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'defaultProps',
 	    value: {
-	      defaultChecked: false,
 	
 	      checkboxClass: 'icheckbox',
 	
@@ -904,6 +902,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    } else {
 	      checked = props.defaultChecked;
 	    }
+	    // Assume we aren't on a mobile for server-side-rendering
+	    this._mobile = false;
 	    this.state = {
 	      checked: checked,
 	      focused: false,
@@ -915,8 +915,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(EnhancedSwitch, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      if (typeof navigator !== 'undefined') {
+	        this._mobile = /ipad|iphone|ipod|android|blackberry|windows phone|opera mini|silk/i.test(navigator.userAgent);
+	      }
 	      this.adjustStyle();
 	      this.setIndeterminate();
+	      this.forceUpdate();
 	    }
 	  }, {
 	    key: 'componentWillReceiveProps',
@@ -955,7 +959,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'setIndeterminate',
 	    value: function setIndeterminate() {
 	      if (this.props.indeterminate) {
-	        this.refs.checkbox.indetermiante = true;
+	        this.refs.checkbox.indeterminate = true;
 	      }
 	    }
 	  }, {
@@ -1093,7 +1097,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      // Choose how to hide input
 	      var hide = undefined;
-	      if (_mobile) {
+	      if (this._mobile) {
 	        hide = {
 	          position: 'absolute',
 	          visibility: 'hidden'
@@ -1207,7 +1211,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            });
 	          }
 	
-	        if (_mobile) {
+	        if (this._mobile) {
 	          event.stopPropagation();
 	        }
 	        // return false;

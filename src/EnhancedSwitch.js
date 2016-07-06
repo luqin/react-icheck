@@ -3,7 +3,6 @@ import classnames from 'classnames';
 
 const _iCheck = 'iCheck';
 const _iCheckHelper = _iCheck + '-helper';
-const _mobile = /ipad|iphone|ipod|android|blackberry|windows phone|opera mini|silk/i.test(navigator.userAgent);
 
 class EnhancedSwitch extends React.Component {
 
@@ -162,6 +161,8 @@ class EnhancedSwitch extends React.Component {
     } else {
       checked = props.defaultChecked;
     }
+    // Assume we aren't on a mobile for server-side-rendering
+    this._mobile = false;
     this.state = {
       checked,
       focused: false,
@@ -171,8 +172,12 @@ class EnhancedSwitch extends React.Component {
   }
 
   componentDidMount() {
+    if (typeof navigator !== 'undefined') {
+      this._mobile = /ipad|iphone|ipod|android|blackberry|windows phone|opera mini|silk/i.test(navigator.userAgent);
+    }
     this.adjustStyle();
     this.setIndeterminate();
+    this.forceUpdate();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -333,7 +338,7 @@ class EnhancedSwitch extends React.Component {
 
     // Choose how to hide input
     let hide;
-    if (_mobile) {
+    if (this._mobile) {
       hide = {
         position: 'absolute',
         visibility: 'hidden',
@@ -461,7 +466,7 @@ class EnhancedSwitch extends React.Component {
         });
       }
 
-      if (_mobile) {
+      if (this._mobile) {
         event.stopPropagation();
       }
       // return false;
