@@ -235,6 +235,7 @@ class EnhancedSwitch extends React.Component {
         checked,
       });
     }
+
     if (this.props.onChange) {
       this.props.onChange(e, checked);
     }
@@ -269,8 +270,6 @@ class EnhancedSwitch extends React.Component {
       return;
     }
 
-    // let type = event.type;
-
     let newChecked = !this.refs.checkbox.checked;
 
     if (!('checked' in this.props)) {
@@ -282,7 +281,10 @@ class EnhancedSwitch extends React.Component {
 
     event.preventDefault();
     event.stopPropagation();
-    if (this.props.onChange && !this.props.label) {
+
+    if (this.props.onChange) {
+      // make sure <ins /> element is not target
+      event.target = this.refs.checkbox;
       this.props.onChange(event, newChecked);
     }
   }
@@ -409,7 +411,6 @@ class EnhancedSwitch extends React.Component {
       name,
       value,
       defaultChecked: props.defaultChecked,
-      // checked: !!checked,
       onChange: this.handleChange.bind(this),
       onBlur: this.handleBlur.bind(this),
       onFocus: this.handleFocus.bind(this),
