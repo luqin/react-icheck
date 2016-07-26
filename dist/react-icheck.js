@@ -989,6 +989,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          checked: checked
 	        });
 	      }
+	
 	      if (this.props.onChange) {
 	        this.props.onChange(e, checked);
 	      }
@@ -1026,8 +1027,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return;
 	      }
 	
-	      // let type = event.type;
-	
 	      var newChecked = !this.refs.checkbox.checked;
 	
 	      if (!('checked' in this.props)) {
@@ -1039,7 +1038,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      event.preventDefault();
 	      event.stopPropagation();
-	      if (this.props.onChange && !this.props.label) {
+	
+	      if (this.props.onChange) {
+	        // make sure <ins /> element is not target
+	        event.target = this.refs.checkbox;
 	        this.props.onChange(event, newChecked);
 	      }
 	    }
@@ -1159,7 +1161,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        name: name,
 	        value: value,
 	        defaultChecked: props.defaultChecked,
-	        // checked: !!checked,
 	        onChange: this.handleChange.bind(this),
 	        onBlur: this.handleBlur.bind(this),
 	        onFocus: this.handleFocus.bind(this)
