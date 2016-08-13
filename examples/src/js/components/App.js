@@ -21,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Navbar inverse staticTop toggleNavKey={0}>
+        <Navbar inverse staticTop>
           <Navbar.Header>
             <Navbar.Brand>
               <a href="#">React-iCheck</a>
