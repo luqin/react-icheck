@@ -416,9 +416,14 @@ class EnhancedSwitch extends React.Component {
       onFocus: this.handleFocus.bind(this),
     };
 
+    let noPropOther = {}
+    Object.keys(other).map(function(key, index) {
+      noPropOther['data-' + key] = other[key]
+    });
+
     const inputElement = (
       <input
-        {...other}
+        {...noPropOther}
         {...inputProps}
       />
     );
