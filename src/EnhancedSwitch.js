@@ -418,7 +418,6 @@ class EnhancedSwitch extends React.Component {
 
     const inputElement = (
       <input
-        {...other}
         {...inputProps}
       />
     );
