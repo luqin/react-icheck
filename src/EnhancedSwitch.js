@@ -321,7 +321,7 @@ class EnhancedSwitch extends React.Component {
       activeClass,
       labelHover,
       labelHoverClass,
-	  labelClassName,
+      labelClassName,
       inheritClass,
       inheritID,
       aria,
