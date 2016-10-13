@@ -308,8 +308,26 @@ class EnhancedSwitch extends React.Component {
       onTouchStart,
       onTouchEnd,
       className,
+
+      checkboxClass,
+      increaseArea,
+      inputType,
+      radioClass,
+      checkedClass,
+      disabledClass,
+      indeterminateClass,
+      hoverClass,
+      focusClass,
+      activeClass,
+      labelHover,
+      labelHoverClass,
+      inheritClass,
+      inheritID,
+      aria,
+      insert,
+
       ...other,
-      } = props;
+    } = props;
 
     let { checked } = this.state;
 
@@ -358,13 +376,12 @@ class EnhancedSwitch extends React.Component {
     }
 
     // Check ARIA option
-    let aria = !!props.aria;
+    aria = !!props.aria;
 
     // TODO: Set ARIA placeholder
     // let ariaID = _iCheck + '-' + Math.random().toString(36).substr(2, 6);
 
     let helper;
-    let indeterminateClass = props.indeterminateClass;
     if (props.inputType === 'checkbox' && typeof props.indeterminateCheckboxClass !== 'undefined') {
       indeterminateClass = props.indeterminateCheckboxClass;
     } else if (props.inputType === 'radio' && typeof props.indeterminateRadioClass !== 'undefined') {
@@ -398,34 +415,32 @@ class EnhancedSwitch extends React.Component {
       wrapProps.id = _iCheck + '-' + id;
     }
 
-    const helperProps = {
-      className: _iCheckHelper,
-      style: layer,
-      onClick: this.handleHelperClick.bind(this),
-    };
-
     // Layer addition
-    helper = <ins {...helperProps}/>;
-
-    const inputProps = {
-      ref: 'checkbox',
-      type: props.inputType,
-      style: hide,
-      name,
-      value,
-      defaultChecked: props.defaultChecked,
-      onChange: this.handleChange.bind(this),
-      onBlur: this.handleBlur.bind(this),
-      onFocus: this.handleFocus.bind(this),
-    };
-
-    const inputElement = (
-      <input
-        {...inputProps}
+    helper = (
+      <ins
+        className={_iCheckHelper}
+        style={ layer}
+        onClick={ this.handleHelperClick.bind(this)}
       />
     );
 
-    let insertElement = props.insert || undefined;
+    const inputElement = (
+      <input
+        {...other}
+
+        ref="checkbox"
+        type={ props.inputType}
+        style={ hide}
+        name={name}
+        value={value}
+        defaultChecked={ props.defaultChecked}
+        onChange={ this.handleChange.bind(this)}
+        onBlur={ this.handleBlur.bind(this)}
+        onFocus={ this.handleFocus.bind(this)}
+      />
+    );
+
+    let insertElement = props.insert;
     if (insertElement && !React.isValidElement(insertElement)) {
       insertElement = <div dangerouslySetInnerHTML={{ __html: insertElement }}></div>;
     }
