@@ -321,6 +321,7 @@ class EnhancedSwitch extends React.Component {
       activeClass,
       labelHover,
       labelHoverClass,
+	  labelClassName,
       inheritClass,
       inheritID,
       aria,
@@ -499,8 +500,8 @@ class EnhancedSwitch extends React.Component {
     };
 
     // add className prop for outer label
-    if (this.props.labelClassName) {
-      labelProps.className = this.props.labelClassName;
+    if (labelClassName) {
+      labelProps.className = labelClassName;
     }
 
     return (
