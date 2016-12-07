@@ -53,7 +53,7 @@ import {Checkbox, Radio} from 'react-icheck';
   checkboxClass="icheckbox_square-blue"
   increaseArea="20%"
 />
-<label for="checkbox1">First name</label>
+<label htmlFor="checkbox1">First name</label>
 
 // Radio
 <Radio
