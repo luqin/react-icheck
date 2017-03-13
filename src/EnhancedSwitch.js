@@ -315,6 +315,7 @@ class EnhancedSwitch extends React.Component {
       radioClass,
       checkedClass,
       disabledClass,
+      indeterminate,
       indeterminateClass,
       hoverClass,
       focusClass,
