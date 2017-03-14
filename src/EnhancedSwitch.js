@@ -315,6 +315,7 @@ class EnhancedSwitch extends React.Component {
       radioClass,
       checkedClass,
       disabledClass,
+      indeterminate,
       indeterminateClass,
       hoverClass,
       focusClass,
@@ -393,7 +394,7 @@ class EnhancedSwitch extends React.Component {
       className: classnames({
         [props.checkboxClass]: props.inputType === 'checkbox',
         [props.radioClass]: props.inputType === 'radio',
-        [indeterminateClass]: props.indeterminate,
+        [indeterminateClass]: indeterminate,
         [props.checkedClass]: checked,
         [props.disabledClass]: disabled,
         [props.hoverClass]: this.state.hovered,
