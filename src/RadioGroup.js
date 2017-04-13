@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import RadioButton from './Radio';
 
 class RadioGroup extends React.Component {
@@ -7,7 +8,7 @@ class RadioGroup extends React.Component {
     /**
      * The name that will be applied to all radio buttons inside it.
      */
-    name: React.PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
 
     /**
      * Sets the default radio button to be the one whose
@@ -15,29 +16,29 @@ class RadioGroup extends React.Component {
      * This will override any individual radio button with
      * the defaultChecked or checked property stated.
      */
-    defaultValue: React.PropTypes.string,
+    defaultValue: PropTypes.string,
 
     /**
      * The value of the currently selected radio button.
      */
-    value: React.PropTypes.string,
+    value: PropTypes.string,
 
     /**
      * Callback function that is fired when a radio button has
      * been clicked. Returns the event and the value of the radio
      * button that has been selected.
      */
-    onChange: React.PropTypes.func,
+    onChange: PropTypes.func,
 
     /**
      * Should be used to pass `Radio` components.
      */
-    children: React.PropTypes.node,
+    children: PropTypes.node,
 
     /**
      * The css class name of the root element.
      */
-    className: React.PropTypes.string,
+    className: PropTypes.string,
   };
 
   constructor(props) {
