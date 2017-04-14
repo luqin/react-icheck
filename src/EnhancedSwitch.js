@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 const _iCheck = 'iCheck';
@@ -7,106 +8,106 @@ const _iCheckHelper = _iCheck + '-helper';
 class EnhancedSwitch extends React.Component {
 
   static propTypes = {
-    inputType: React.PropTypes.string.isRequired,
+    inputType: PropTypes.string.isRequired,
 
-    checked: React.PropTypes.bool,
-    defaultChecked: React.PropTypes.bool,
+    checked: PropTypes.bool,
+    defaultChecked: PropTypes.bool,
 
-    label: React.PropTypes.node,
+    label: PropTypes.node,
 
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
 
-    indeterminate: React.PropTypes.bool,
+    indeterminate: PropTypes.bool,
 
-    onChange: React.PropTypes.func,
-    onBlur: React.PropTypes.func,
-    onFocus: React.PropTypes.func,
+    onChange: PropTypes.func,
+    onBlur: PropTypes.func,
+    onFocus: PropTypes.func,
 
     // base class added to customized checkboxes
-    checkboxClass: React.PropTypes.string,
+    checkboxClass: PropTypes.string,
 
     // base class added to customized radio buttons
-    radioClass: React.PropTypes.string,
+    radioClass: PropTypes.string,
 
     // class added on checked state (input.checked = true)
-    checkedClass: React.PropTypes.string,
+    checkedClass: PropTypes.string,
 
     // if not empty, used instead of 'checkedClass' option (input type specific)
-    checkedCheckboxClass: React.PropTypes.string,
-    checkedRadioClass: React.PropTypes.string,
+    checkedCheckboxClass: PropTypes.string,
+    checkedRadioClass: PropTypes.string,
 
     // if not empty, added as class name on unchecked state (input.checked = false)
-    uncheckedClass: React.PropTypes.string,
+    uncheckedClass: PropTypes.string,
 
     // if not empty, used instead of 'uncheckedClass' option (input type specific)
-    uncheckedCheckboxClass: React.PropTypes.string,
-    uncheckedRadioClass: React.PropTypes.string,
+    uncheckedCheckboxClass: PropTypes.string,
+    uncheckedRadioClass: PropTypes.string,
 
     // class added on disabled state (input.disabled = true)
-    disabledClass: React.PropTypes.string,
+    disabledClass: PropTypes.string,
 
     // if not empty, used instead of 'disabledClass' option (input type specific)
-    disabledCheckboxClass: React.PropTypes.string,
-    disabledRadioClass: React.PropTypes.string,
+    disabledCheckboxClass: PropTypes.string,
+    disabledRadioClass: PropTypes.string,
 
     // if not empty, added as class name on enabled state (input.disabled = false)
-    enabledClass: React.PropTypes.string,
+    enabledClass: PropTypes.string,
 
     // if not empty, used instead of 'enabledClass' option (input type specific)
-    enabledCheckboxClass: React.PropTypes.string,
-    enabledRadioClass: React.PropTypes.string,
+    enabledCheckboxClass: PropTypes.string,
+    enabledRadioClass: PropTypes.string,
 
     // class added on indeterminate state (input.indeterminate = true)
-    indeterminateClass: React.PropTypes.string,
+    indeterminateClass: PropTypes.string,
 
     // if not empty, used instead of 'indeterminateClass' option (input type specific)
-    indeterminateCheckboxClass: React.PropTypes.string,
-    indeterminateRadioClass: React.PropTypes.string,
+    indeterminateCheckboxClass: PropTypes.string,
+    indeterminateRadioClass: PropTypes.string,
 
     // if not empty, added as class name on determinate state (input.indeterminate = false)
-    determinateClass: React.PropTypes.string,
+    determinateClass: PropTypes.string,
 
     // if not empty, used instead of 'determinateClass' option (input type specific)
-    determinateCheckboxClass: React.PropTypes.string,
-    determinateRadioClass: React.PropTypes.string,
+    determinateCheckboxClass: PropTypes.string,
+    determinateRadioClass: PropTypes.string,
 
     // class added on hover state (pointer is moved onto input)
-    hoverClass: React.PropTypes.string,
+    hoverClass: PropTypes.string,
 
     // class added on focus state (input has gained focus)
-    focusClass: React.PropTypes.string,
+    focusClass: PropTypes.string,
 
     // class added on active state (mouse button is pressed on input)
-    activeClass: React.PropTypes.string,
+    activeClass: PropTypes.string,
 
     // adds hoverClass to customized input on label hover and labelHoverClass to label on input hover
-    labelHover: React.PropTypes.bool,
+    labelHover: PropTypes.bool,
 
     // class added to label if labelHover set to true
-    labelHoverClass: React.PropTypes.string,
+    labelHoverClass: PropTypes.string,
 
     // increase clickable area by given % (negative number to decrease)
-    increaseArea: React.PropTypes.string,
+    increaseArea: PropTypes.string,
 
     // true to set 'pointer' CSS cursor over enabled inputs and 'default' over disabled
-    cursor: React.PropTypes.bool,
+    cursor: PropTypes.bool,
 
     // set true to inherit original input's class name
-    inheritClass: React.PropTypes.bool,
+    inheritClass: PropTypes.bool,
 
     // if set to true, input's id is prefixed with 'iCheck-' and attached
-    inheritID: React.PropTypes.bool,
+    inheritID: PropTypes.bool,
 
     // set true to activate ARIA support
-    aria: React.PropTypes.bool,
+    aria: PropTypes.bool,
 
     // add HTML code or text inside customized input
-    insert: React.PropTypes.node,
+    insert: PropTypes.node,
 
-    children: React.PropTypes.node,
+    children: PropTypes.node,
 
     // class added for outer label
-    labelClassName: React.PropTypes.string,
+    labelClassName: PropTypes.string,
   };
 
   static defaultProps = {
