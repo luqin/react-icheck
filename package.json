@@ -1,6 +1,6 @@
 {
   "name": "react-icheck",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "iCheck components built with React. Highly customizable checkboxes and radio buttons",
   "main": "lib/index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "README.md"
   ],
   "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0"
+    "react": "^15"
   },
   "dependencies": {
     "babel-runtime": "^5.8.38",
@@ -41,7 +41,7 @@
     "eslint-config-onefe": "0.2.0",
     "eslint-plugin-react": "^3.11.3",
     "gulp": "^3.9.1",
-    "react": "15.3.2",
+    "react": "^15.4.2",
     "react-dom": "15.3.2",
     "react-bootstrap": "^0.30.3",
     "react-component-tools": "^1.0.2",
