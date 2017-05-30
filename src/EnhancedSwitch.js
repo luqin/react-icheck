@@ -404,18 +404,19 @@ class EnhancedSwitch extends React.Component {
       }),
     };
 
-    if (aria) {
-      wrapProps.role = props.inputType;
-      // Set ARIA "labelledby"
-      wrapProps['aria-labelledby'] = '';
-    }
-
     if (props.inheritClass) {
       wrapProps.className = classnames(wrapProps.className, props.className);
     }
 
     if (props.inheritID && id) {
       wrapProps.id = _iCheck + '-' + id;
+    }
+
+    if (aria) {
+      wrapProps.role = props.inputType;
+      // Set ARIA "labelledby"
+      wrapProps['aria-labelledby'] = wrapProps.id;
+      wrapProps['aria-checked'] = checked;
     }
 
     // Layer addition
