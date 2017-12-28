@@ -22,7 +22,7 @@
     "README.md"
   ],
   "peerDependencies": {
-    "react": "^15"
+    "react": "^16"
   },
   "dependencies": {
     "babel-runtime": "^5.8.38",
