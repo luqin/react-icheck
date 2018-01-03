@@ -22,7 +22,7 @@
     "README.md"
   ],
   "peerDependencies": {
-    "react": "^15"
+    "react": "^15 || ^16"
   },
   "dependencies": {
     "babel-runtime": "^5.8.38",
@@ -35,21 +35,21 @@
     "babel-core": "^5.8.38",
     "babel-eslint": "^4.1.1",
     "babel-plugin-object-assign": "^1.2.1",
-    "bootstrap": "3.3.5",
     "eslint": "^1.10.3",
-    "eslint-config-airbnb": "2.1.1",
-    "eslint-config-onefe": "0.2.0",
+    "bootstrap": "^3.3.7",
+    "eslint-config-airbnb": "^2.1.1",
+    "eslint-config-onefe": "^0.2.0",
     "eslint-plugin-react": "^3.11.3",
     "gulp": "^3.9.1",
     "react": "^15.4.2",
-    "react-dom": "15.3.2",
+    "react-dom": "^15.4.2",
     "react-bootstrap": "^0.30.3",
     "react-component-tools": "^1.0.2",
     "react-router": "^2.8.1",
     "react-router-bootstrap": "^0.22.1",
     "react-router-loader": "^0.5.4",
-    "webpack": "1.13.0",
-    "webpack-dev-server": "1.14.1"
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
   },
   "keywords": [
     "react",
